@@ -77,7 +77,7 @@ const config = {
             position: 'left',
           },
           {
-            to: '/contracts/overview',
+            to: '/contracts/guides',
             label: 'User Guides',
             position: 'left',
           },

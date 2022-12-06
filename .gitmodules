@@ -1,0 +1,6 @@
+[submodule "core"]
+	path = core
+	url = https://github.com/clober-dex/core
+[submodule "library"]
+	path = library
+	url = https://github.com/clober-dex/library
