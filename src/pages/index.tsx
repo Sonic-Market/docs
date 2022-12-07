@@ -18,22 +18,22 @@ import SearchBarWithAnalytics from '@site/src/theme/SearchBar'
 
 export const actions = [
   {
-    title: 'What is Clober',
+    title: 'Technical Paper',
     icon: Info,
     to: '/concepts/overview',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna`,
+    text: `Learn about the core concepts of the Clober, Segmented Segment Tree, Octopus Heap and more.`,
+  },
+  {
+    title: 'The Clober smart contracts',
+    icon: BookOpen,
+    to: '/contracts/overview',
+    text: `Learn about the architecture of the Clober smart contracts through guided examples.`,
   },
   {
     title: 'Trade Now!',
     icon: ArrowRightCircle,
     to: 'https://beta.clober.io',
     text: `Place limit orders on our fully on-chain order book. Have CEX on DEX!`,
-  },
-  {
-    title: 'The Clober smart contracts',
-    icon: BookOpen,
-    to: '/contracts/overview',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna`,
   },
 ]
 
