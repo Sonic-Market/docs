@@ -6,8 +6,6 @@ sidebar_position: 2
 
 ## Trading Fees
 
-# 
-
 Trading fees are set per market based on the properties of the asset pair being traded.
 Most pairs will reward the maker with a negative trading fee paid for by the positive trading fees of the taker.
 The maker is therefore rewarded with the asset that the taker paid with.
