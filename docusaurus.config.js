@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'ignore',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/favicon.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -68,7 +68,7 @@ const config = {
         title: 'Clober Docs',
         logo: {
           alt: 'Clober',
-          src: 'img/favicon.svg',
+          src: 'img/logo.svg',
         },
         items: [
           {
@@ -191,9 +191,8 @@ const config = {
         id: 'concepts',
         path: 'docs/concepts',
         routeBasePath: 'concepts/',
-        remarkPlugins: [
-          [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
-        ],
+        remarkPlugins: [math],
+        rehypePlugins: [katex],
         includeCurrentVersion: true,
       },
     ],
