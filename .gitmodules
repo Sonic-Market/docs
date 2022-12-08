@@ -1,8 +1,6 @@
 [submodule "core"]
 	path = core
 	url = https://github.com/clober-dex/core
-	branch = jay/docs
 [submodule "library"]
 	path = library
 	url = https://github.com/clober-dex/library
-	branch = feat/docs
