@@ -1,5 +1,3 @@
-# CloberVersionable
-
 ## CloberVersionable
 
 ### VERSION

@@ -1,6 +1,8 @@
-# CloberOctopusHeap
-
 ## CloberOctopusHeap
+
+Heap data structure that can hold up to 256 uint16 values.
+In each node, the quotient of the value to be pushed divided by 2^8 is written,
+and the remainder is expressed by flagging a bit on the uint256 at the index equal to the value of the remainder.
 
 ### init
 

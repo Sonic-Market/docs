@@ -1,6 +1,9 @@
-# CloberPackedUint256
-
 ## CloberPackedUint256
+
+This library treats uint256 as a group of uint8, uint16, or uint32 and adds, subtracts,
+or updates the elements of the group by indexing them.
+`*Unsafe` optimizes gas costs by using assembly under the assumption
+that the user will not provide an input that would cause an arithmetic underflow or overflow.
 
 ### get8Unsafe
 

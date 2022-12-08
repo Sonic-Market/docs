@@ -1,5 +1,3 @@
-# CloberMarketFactory
-
 ## CloberMarketFactory
 
 ### CreateMarket

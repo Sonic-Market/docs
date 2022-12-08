@@ -1,6 +1,9 @@
-# CloberSegmentedSegmentTree
-
 ## CloberSegmentedSegmentTree
+
+uint32 values are stored here to efficiently query the sum of a given range.
+A total of 2048 values can be stored in the segment tree.
+A query will require at most 5 storage loads, and an update to the tree will require at most 3 storage writes.
+The some of all nodes should not exceed uint32.
 
 ### update
 

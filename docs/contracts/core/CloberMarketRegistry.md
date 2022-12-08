@@ -1,5 +1,3 @@
-# CloberMarketRegistry
-
 ## CloberMarketRegistry
 
 ### MarketRegister
