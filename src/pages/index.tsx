@@ -50,7 +50,7 @@ export const developerLinks = [
   },
   {
     title: 'clober-docs',
-    href: 'https://github.com/Uniswap/docs',
+    href: 'https://github.com/clober-dex/docs',
     icon: GitHub,
   },
 ]
@@ -261,6 +261,7 @@ const StyledTitleImage = styled(StyledImage)`
   z-index: -1;
   position: absolute;
   opacity: 0.2;
+  overflow: hidden;
   mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
 `
 
@@ -297,12 +298,6 @@ export default function Home() {
               <SearchBarWithAnalytics />
             </HideMedium>
           </div>
-          <StyledTitleImage
-            sources={{
-              light: useBaseUrl('/img/grow.png'),
-              dark: useBaseUrl('/img/grow2.png'),
-            }}
-          />
           <Row>
             {actions.map((action) => (
               <Link
@@ -330,6 +325,12 @@ export default function Home() {
             ))}
           </Row>
         </DocsHeader>
+        <StyledTitleImage
+          sources={{
+            light: useBaseUrl('/img/grow.png'),
+            dark: useBaseUrl('/img/grow2.png'),
+          }}
+        />
         <hr />
         <TwoRow
           style={{
