@@ -341,8 +341,8 @@ export default function Home() {
           <StyledImage
             style={{ maxHeight: '400px' }}
             sources={{
-              light: useBaseUrl('/img/use.png'),
-              dark: useBaseUrl('/img/use2.png'),
+              light: useBaseUrl(''),
+              dark: useBaseUrl(''),
             }}
           />
           <div>
