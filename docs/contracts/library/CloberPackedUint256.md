@@ -131,6 +131,48 @@ Retrieves a uint32 from the packed value at the specified index.
 | ---- | ---- | ----------- |
 | [0] | uint32 | The uint32 at the specified index of the packed value. |
 
+### get64Unsafe
+
+```solidity
+function get64Unsafe(uint256 packed, uint256 index) external pure returns (uint64)
+```
+
+Retrieves a uint64 from the packed value at the specified index with unchecked.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value to retrieve the uint64 from. |
+| index | uint256 | The index of the uint64 to retrieve. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint64 | The uint64 at the specified index of the packed value. |
+
+### get64
+
+```solidity
+function get64(uint256 packed, uint256 index) external pure returns (uint64)
+```
+
+Retrieves a uint64 from the packed value at the specified index.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value to retrieve the uint64 from. |
+| index | uint256 | The index of the uint64 to retrieve. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint64 | The uint64 at the specified index of the packed value. |
+
 ### add8Unsafe
 
 ```solidity
@@ -262,6 +304,50 @@ Adds a uint32 value to the packed value at the specified index.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | [0] | uint256 | The resulting packed value with the uint32 added at the specified index. |
+
+### add64Unsafe
+
+```solidity
+function add64Unsafe(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
+```
+
+Adds a uint64 value to the packed value at the specified index with unchecked.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value to add the uint64 to. |
+| index | uint256 | The index at which to add the uint64. |
+| value | uint64 | The uint64 value to add. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The resulting packed value with the uint64 added at the specified index. |
+
+### add64
+
+```solidity
+function add64(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
+```
+
+Adds a uint64 value to the packed value at the specified index.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value to add the uint64 to. |
+| index | uint256 | The index at which to add the uint64. |
+| value | uint64 | The uint64 value to add. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The resulting packed value with the uint64 added at the specified index. |
 
 ### sub8Unsafe
 
@@ -395,6 +481,50 @@ Subtracts a uint32 value from the packed value at the specified index.
 | ---- | ---- | ----------- |
 | [0] | uint256 | The resulting packed value with the uint32 subtracted at the specified index. |
 
+### sub64Unsafe
+
+```solidity
+function sub64Unsafe(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
+```
+
+Subtracts a uint64 value from the packed value at the specified index with unchecked.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value to subtract the uint64 from. |
+| index | uint256 | The index at which to subtract the uint64. |
+| value | uint64 | The uint64 value to subtract. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The resulting packed value with the uint64 subtracted at the specified index. |
+
+### sub64
+
+```solidity
+function sub64(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
+```
+
+Subtracts a uint64 value from the packed value at the specified index.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value to subtract the uint64 from. |
+| index | uint256 | The index at which to subtract the uint64. |
+| value | uint64 | The uint64 value to subtract. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The resulting packed value with the uint64 subtracted at the specified index. |
+
 ### update8Unsafe
 
 ```solidity
@@ -527,25 +657,89 @@ Updates the packed value at the specified index with a uint32 value.
 | ---- | ---- | ----------- |
 | [0] | uint256 | The resulting packed value with the uint32 value at the specified index. |
 
+### update64Unsafe
+
+```solidity
+function update64Unsafe(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
+```
+
+Updates the packed value at the specified index with a uint64 value with unchecked.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value to update. |
+| index | uint256 | The index of the packed value to update. |
+| value | uint64 | The uint64 value to update the packed value with. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The resulting packed value with the uint64 value at the specified index. |
+
+### update64
+
+```solidity
+function update64(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
+```
+
+Updates the packed value at the specified index with a uint64 value.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value to update. |
+| index | uint256 | The index of the packed value to update. |
+| value | uint64 | The uint64 value to update the packed value with. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The resulting packed value with the uint64 value at the specified index. |
+
 ### total32
 
 ```solidity
 function total32(uint256 packed) external pure returns (uint256)
 ```
 
-Calculates the total of the uint32 values in the packed value.
+Calculates the sum of all the uint32 values in the packed value.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value containing the uint32 values to total. |
+| packed | uint256 | The packed value containing the uint32 values to add up. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The total of the uint32 values in the packed value. |
+| [0] | uint256 | The sum of all the uint32 values in the packed value. |
+
+### total64
+
+```solidity
+function total64(uint256 packed) external pure returns (uint256)
+```
+
+Calculates the sum of all the uint64 values in the packed value.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value containing the uint64 values to add up. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The sum of all the uint64 values in the packed value. |
 
 ### sum32
 
@@ -559,13 +753,35 @@ Calculates the sum of the uint32 values in the packed value within the specified
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value containing the uint32 values to sum. |
-| from | uint256 | The starting index (inclusive) of the uint32 values to sum. |
-| to | uint256 | The ending index (exclusive) of the uint32 values to sum. |
+| packed | uint256 | The packed value containing the uint32 values to add up. |
+| from | uint256 | The starting index (inclusive) of the uint32 values to add up. |
+| to | uint256 | The ending index (exclusive) of the uint32 values to add up. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | [0] | uint256 | The sum of the uint32 values in the packed value within the specified range. |
+
+### sum64
+
+```solidity
+function sum64(uint256 packed, uint256 from, uint256 to) external pure returns (uint256)
+```
+
+Calculates the sum of the uint64 values in the packed value within the specified range.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| packed | uint256 | The packed value containing the uint64 values to add up. |
+| from | uint256 | The starting index (inclusive) of the uint64 values to add up. |
+| to | uint256 | The ending index (exclusive) of the uint64 values to add up. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The sum of the uint64 values in the packed value within the specified range. |
 

@@ -1,9 +1,9 @@
 ## CloberMarketFactory
 
-### CreateMarket
+### CreateVolatileMarket
 
 ```solidity
-event CreateMarket(address market, address impl, address quoteToken, address baseToken, uint256 quoteUnit)
+event CreateVolatileMarket(address market, address quoteToken, address baseToken, uint256 quoteUnit, int96 nonce, int24 makerFee, uint24 takerFee, uint128 a, uint128 r)
 ```
 
 Emitted by the factory when it generates a new market
@@ -13,70 +13,169 @@ Emitted by the factory when it generates a new market
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | market | address | The address of the new market |
-| impl | address | The address of the new market's implementation contract |
 | quoteToken | address | The address of the new market's quote token |
 | baseToken | address | The address of the new market's base token |
 | quoteUnit | uint256 | The amount that one raw amount represent in quote token |
+| nonce | int96 | The seed number to generate market address |
+| makerFee | int24 | The value of the make fee.        Paid to the maker when negative, paid by the maker when positive.        Every 10000 represents a 1% fee on trade volume. |
+| takerFee | uint24 | The value of the take fee.        Paid by the taker. Every 10000 represents a 1% fee on trade volume. |
+| a | uint128 | Scale factor |
+| r | uint128 | Common ratio |
 
-### defaultProxyAdmin
-
-```solidity
-function defaultProxyAdmin() external view returns (address)
-```
-
-#### Return Values
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | address | The address of market proxies' admin |
-
-### registry
+### CreateStableMarket
 
 ```solidity
-function registry() external view returns (address)
+event CreateStableMarket(address market, address quoteToken, address baseToken, uint256 quoteUnit, int96 nonce, int24 makerFee, uint24 takerFee, uint128 a, uint128 d)
 ```
 
-#### Return Values
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | address | The address of the MarketRegistry contract |
-
-### marketDeployer
-
-```solidity
-function marketDeployer(enum CloberMarketRegistry.MarketType marketType) external view returns (address)
-```
+Emitted by the factory when it generates a new market
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| marketType | enum CloberMarketRegistry.MarketType | The enum value of market type |
+| market | address | The address of the new market |
+| quoteToken | address | The address of the new market's quote token |
+| baseToken | address | The address of the new market's base token |
+| quoteUnit | uint256 | The amount that one raw amount represent in quote token |
+| nonce | int96 | The seed number to generate market address |
+| makerFee | int24 | The value of the make fee.        Paid to the maker when negative, paid by the maker when positive.        Every 10000 represents a 1% fee on trade volume. |
+| takerFee | uint24 | The value of the take fee.        Paid by the taker. Every 10000 represents a 1% fee on trade volume. |
+| a | uint128 | Initial term of the arithmetic progression |
+| d | uint128 | The common difference of successive members |
 
-#### Return Values
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | address | The address of the MarketDeployer contract |
-
-### createDefaultMarket
+### ChangeOwner
 
 ```solidity
-function createDefaultMarket(address quoteToken, address baseToken, uint88 quoteUnit, int24 makeFee, int24 takeFee) external returns (address)
+event ChangeOwner(address previousOwner, address newOwner)
 ```
 
-Create new market with DefaultPriceBook
+Emitted by the factory when the address of the owner has been changed
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| quoteToken | address | The address of new market's quote token |
-| baseToken | address | The address of new market's base token |
-| quoteUnit | uint88 | The amount that one raw amount represent in quote token |
-| makeFee | int24 | The percentage of maker fee in OrderBook._FEE_PRECISION |
-| takeFee | int24 | The percentage of taker fee in OrderBook._FEE_PRECISION |
+| previousOwner | address | The address of the previous owner |
+| newOwner | address | The address of the new owner |
+
+### ChangeDaoTreasury
+
+```solidity
+event ChangeDaoTreasury(address previousTreasury, address newTreasury)
+```
+
+Emitted by the factory when the DAO Treasury address has been changed
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| previousTreasury | address | The address of the previous DAO Treasury |
+| newTreasury | address | The address of the new DAO Treasury |
+
+### ChangeHost
+
+```solidity
+event ChangeHost(address market, address previousHost, address newHost)
+```
+
+Emitted by the market when the host address has been changed
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| market | address | The address of the target market |
+| previousHost | address | The address of the previous host |
+| newHost | address | The address of a new host |
+
+### volatileMarketDeployer
+
+```solidity
+function volatileMarketDeployer() external view returns (address)
+```
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the VolatileMarketDeployer |
+
+### stableMarketDeployer
+
+```solidity
+function stableMarketDeployer() external view returns (address)
+```
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the StableMarketDeployer |
+
+### daoTreasury
+
+```solidity
+function daoTreasury() external view returns (address)
+```
+
+Returns the address of the DAO Treasury
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the DAO Treasury |
+
+### owner
+
+```solidity
+function owner() external view returns (address)
+```
+
+Returns the address of the factory owner
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the factory owner |
+
+### nonce
+
+```solidity
+function nonce() external view returns (int96)
+```
+
+Returns the abs value of the next seed number to generate a market
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | int96 | The integer value of nonce |
+
+### createVolatileMarket
+
+```solidity
+function createVolatileMarket(address host, address quoteToken, address baseToken, uint96 quoteUnit, int24 makerFee, uint24 takerFee, uint128 a, uint128 r) external returns (address)
+```
+
+Create new market with VolatilePriceBook
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| host | address | The address of a new market's host |
+| quoteToken | address | The address of a new market's quote token |
+| baseToken | address | The address of a new market's base token |
+| quoteUnit | uint96 | The amount that one raw amount represent in quote token |
+| makerFee | int24 | The percentage of maker fee in OrderBook._FEE_PRECISION |
+| takerFee | uint24 | The percentage of taker fee in OrderBook._FEE_PRECISION |
+| a | uint128 | Scale factor |
+| r | uint128 | Common ratio |
 
 #### Return Values
 
@@ -87,7 +186,7 @@ Create new market with DefaultPriceBook
 ### createStableMarket
 
 ```solidity
-function createStableMarket(address quoteToken, address baseToken, uint88 quoteUnit, int24 makeFee, int24 takeFee) external returns (address)
+function createStableMarket(address host, address quoteToken, address baseToken, uint96 quoteUnit, int24 makerFee, uint24 takerFee, uint128 a, uint128 d) external returns (address)
 ```
 
 Create new market with StablePriceBook
@@ -96,11 +195,14 @@ Create new market with StablePriceBook
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| quoteToken | address | The address of new market's quote token |
-| baseToken | address | The address of new market's base token |
-| quoteUnit | uint88 | The amount that one raw amount represent in quote token |
-| makeFee | int24 | The percentage of maker fee in OrderBook._FEE_PRECISION |
-| takeFee | int24 | The percentage of taker fee in OrderBook._FEE_PRECISION |
+| host | address | The address of a new market's host |
+| quoteToken | address | The address of a new market's quote token |
+| baseToken | address | The address of a new market's base token |
+| quoteUnit | uint96 | The amount that one raw amount represent in quote token |
+| makerFee | int24 | The percentage of maker fee in OrderBook._FEE_PRECISION |
+| takerFee | uint24 | The percentage of taker fee in OrderBook._FEE_PRECISION |
+| a | uint128 | Initial term of the arithmetic progression |
+| d | uint128 | The common difference of successive members |
 
 #### Return Values
 
@@ -108,32 +210,74 @@ Create new market with StablePriceBook
 | ---- | ---- | ----------- |
 | [0] | address | The address of the created market |
 
-### changeDefaultProxyAdmin
+### changeDaoTreasury
 
 ```solidity
-function changeDefaultProxyAdmin(address newAdmin) external
+function changeDaoTreasury(address treasury) external
 ```
 
-Change defaultProxyAdmin
+Change the DAO Treasury address
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| newAdmin | address | The proxy admin address of new market in future |
+| treasury | address | The address of the DAO Treasury |
 
-### changeMarketDeployer
+### changeOwner
 
 ```solidity
-function changeMarketDeployer(enum CloberMarketRegistry.MarketType marketType, address deployer) external
+function changeOwner(address newOwner) external
 ```
 
-Change marketDeployer
+Change the factory owner address
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| marketType | enum CloberMarketRegistry.MarketType | The enum value of market type |
-| deployer | address | The address of new MarketDeployer |
+| newOwner | address | The address of the new factory owner |
+
+### getMarketHost
+
+```solidity
+function getMarketHost(address market) external view returns (address)
+```
+
+Returns the host address of the given market
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| market | address | The address of the target market |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The host address of the market |
+
+### handOverHost
+
+```solidity
+function handOverHost(address market, address newHost) external
+```
+
+Hand over the right of the host to a new address
+
+_Only the market host can call this function_
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| market | address | The address of the target market |
+| newHost | address | The address of a new host |
+
+### computeTokenAddress
+
+```solidity
+function computeTokenAddress(int96 nonce_) external view returns (address)
+```
 

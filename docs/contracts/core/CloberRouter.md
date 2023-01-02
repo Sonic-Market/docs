@@ -5,12 +5,13 @@
 ```solidity
 struct LimitOrderParams {
   address market;
-  uint96 deadline;
+  uint64 deadline;
+  uint32 claimBounty;
   address user;
-  uint32 rawAmount;
   uint16 priceIndex;
+  uint64 rawAmount;
   bool postOnly;
-  uint160 claimBounty;
+  bool useNative;
   uint256 baseAmount;
 }
 ```
@@ -48,11 +49,12 @@ Make limit order in ask side
 ```solidity
 struct MarketOrderParams {
   address market;
-  uint96 deadline;
+  uint64 deadline;
   address user;
   uint16 limitPriceIndex;
-  uint32 rawAmount;
+  uint64 rawAmount;
   bool expendInput;
+  bool useNative;
   uint256 baseAmount;
 }
 ```
@@ -60,7 +62,7 @@ struct MarketOrderParams {
 ### marketBid
 
 ```solidity
-function marketBid(struct CloberRouter.MarketOrderParams params) external
+function marketBid(struct CloberRouter.MarketOrderParams params) external payable
 ```
 
 Make market order in bid side
@@ -74,7 +76,7 @@ Make market order in bid side
 ### marketAsk
 
 ```solidity
-function marketAsk(struct CloberRouter.MarketOrderParams params) external
+function marketAsk(struct CloberRouter.MarketOrderParams params) external payable
 ```
 
 Make market order in bid side
@@ -84,4 +86,43 @@ Make market order in bid side
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | params | struct CloberRouter.MarketOrderParams | The market order parameters |
+
+### MarketOrderKeys
+
+```solidity
+struct MarketOrderKeys {
+  address market;
+  struct CloberOrderBook.OrderKey[] orderKeys;
+}
+```
+
+### claim
+
+```solidity
+function claim(uint64 deadline, struct CloberRouter.MarketOrderKeys[] keysList) external
+```
+
+Claim orders across markets
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| deadline | uint64 | The TTL of transaction in block timestamp |
+| keysList | struct CloberRouter.MarketOrderKeys[] | The list of MarketOrderKeys |
+
+### cancel
+
+```solidity
+function cancel(uint64 deadline, struct CloberRouter.MarketOrderKeys[] keysList) external
+```
+
+Cancel orders across markets
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| deadline | uint64 | The TTL of transaction in block timestamp |
+| keysList | struct CloberRouter.MarketOrderKeys[] | The list of MarketOrderKeys |
 
