@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Trading fees are set per market based on the properties of the asset pair being traded.
 Most pairs will reward the maker with a negative trading fee paid for by the positive trading fees of the taker.
-The maker is therefore rewarded with the asset that the taker paid with.
+The maker will be rewarded with the same asset that the taker is receiving.
 
 For example, let's assume an ETH-USDC market with a 0.04% fee for the taker and a -0.02% fee for the maker.
 If Alice makes a sell order for 10 ETH at 1000 USDC each, and Bob fills that order,
