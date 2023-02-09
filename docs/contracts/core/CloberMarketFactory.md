@@ -3,7 +3,7 @@
 ### CreateVolatileMarket
 
 ```solidity
-event CreateVolatileMarket(address market, address quoteToken, address baseToken, uint256 quoteUnit, int96 nonce, int24 makerFee, uint24 takerFee, uint128 a, uint128 r)
+event CreateVolatileMarket(address market, address orderToken, address quoteToken, address baseToken, uint256 quoteUnit, uint256 nonce, int24 makerFee, uint24 takerFee, uint128 a, uint128 r)
 ```
 
 Emitted by the factory when it generates a new market
@@ -13,19 +13,20 @@ Emitted by the factory when it generates a new market
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | market | address | The address of the new market |
+| orderToken | address | The address of the new market's order token |
 | quoteToken | address | The address of the new market's quote token |
 | baseToken | address | The address of the new market's base token |
 | quoteUnit | uint256 | The amount that one raw amount represent in quote token |
-| nonce | int96 | The seed number to generate market address |
-| makerFee | int24 | The value of the make fee.        Paid to the maker when negative, paid by the maker when positive.        Every 10000 represents a 1% fee on trade volume. |
-| takerFee | uint24 | The value of the take fee.        Paid by the taker. Every 10000 represents a 1% fee on trade volume. |
+| nonce | uint256 | The seed number to generate a market |
+| makerFee | int24 | The value of the make fee. Paid to the maker when negative, paid by the maker when positive. Every 10000 represents a 1% fee on trade volume. |
+| takerFee | uint24 | The value of the take fee. Paid by the taker. Every 10000 represents a 1% fee on trade volume. |
 | a | uint128 | Scale factor |
 | r | uint128 | Common ratio |
 
 ### CreateStableMarket
 
 ```solidity
-event CreateStableMarket(address market, address quoteToken, address baseToken, uint256 quoteUnit, int96 nonce, int24 makerFee, uint24 takerFee, uint128 a, uint128 d)
+event CreateStableMarket(address market, address orderToken, address quoteToken, address baseToken, uint256 quoteUnit, uint256 nonce, int24 makerFee, uint24 takerFee, uint128 a, uint128 d)
 ```
 
 Emitted by the factory when it generates a new market
@@ -35,12 +36,13 @@ Emitted by the factory when it generates a new market
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | market | address | The address of the new market |
+| orderToken | address | The address of the new market's order token |
 | quoteToken | address | The address of the new market's quote token |
 | baseToken | address | The address of the new market's base token |
 | quoteUnit | uint256 | The amount that one raw amount represent in quote token |
-| nonce | int96 | The seed number to generate market address |
-| makerFee | int24 | The value of the make fee.        Paid to the maker when negative, paid by the maker when positive.        Every 10000 represents a 1% fee on trade volume. |
-| takerFee | uint24 | The value of the take fee.        Paid by the taker. Every 10000 represents a 1% fee on trade volume. |
+| nonce | uint256 | The seed number to generate a market |
+| makerFee | int24 | The value of the make fee. Paid to the maker when negative, paid by the maker when positive. Every 10000 represents a 1% fee on trade volume. |
+| takerFee | uint24 | The value of the take fee. Paid by the taker. Every 10000 represents a 1% fee on trade volume. |
 | a | uint128 | Initial term of the arithmetic progression |
 | d | uint128 | The common difference of successive members |
 
@@ -114,19 +116,37 @@ function stableMarketDeployer() external view returns (address)
 | ---- | ---- | ----------- |
 | [0] | address | The address of the StableMarketDeployer |
 
-### daoTreasury
+### canceler
 
 ```solidity
-function daoTreasury() external view returns (address)
+function canceler() external view returns (address)
 ```
-
-Returns the address of the DAO Treasury
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | address | The address of the DAO Treasury |
+| [0] | address | The address of the OrderCanceler |
+
+### registeredQuoteTokens
+
+```solidity
+function registeredQuoteTokens(address token) external view returns (bool)
+```
+
+_Returns whether the specified token address has been registered as a quote token._
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | address | The address of the token to check. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | bool | bool Whether the token is registered as a quote token. |
 
 ### owner
 
@@ -142,19 +162,47 @@ Returns the address of the factory owner
 | ---- | ---- | ----------- |
 | [0] | address | The address of the factory owner |
 
-### nonce
+### futureOwner
 
 ```solidity
-function nonce() external view returns (int96)
+function futureOwner() external view returns (address)
 ```
 
-Returns the abs value of the next seed number to generate a market
+Returns the address of the factory owner candidate
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | int96 | The integer value of nonce |
+| [0] | address | The address of the factory owner candidate |
+
+### daoTreasury
+
+```solidity
+function daoTreasury() external view returns (address)
+```
+
+Returns the address of the DAO Treasury
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the DAO Treasury |
+
+### nonce
+
+```solidity
+function nonce() external view returns (uint256)
+```
+
+Returns the next seed number to generate a market
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The next seed number to generate a market |
 
 ### createVolatileMarket
 
@@ -224,19 +272,31 @@ Change the DAO Treasury address
 | ---- | ---- | ----------- |
 | treasury | address | The address of the DAO Treasury |
 
-### changeOwner
+### prepareChangeOwner
 
 ```solidity
-function changeOwner(address newOwner) external
+function prepareChangeOwner(address newOwner) external
 ```
 
-Change the factory owner address
+Sets the new owner address for the contract.
+
+_Only the factory owner can call this function_
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| newOwner | address | The address of the new factory owner |
+| newOwner | address | The new owner address for the contract. |
+
+### executeChangeOwner
+
+```solidity
+function executeChangeOwner() external
+```
+
+Changes the owner of the contract to the address set by prepareChangeOwner function.
+
+_Only the future owner can call this function_
 
 ### getMarketHost
 
@@ -244,6 +304,7 @@ Change the factory owner address
 function getMarketHost(address market) external view returns (address)
 ```
 
+{
 Returns the host address of the given market
 
 #### Parameters
@@ -258,13 +319,13 @@ Returns the host address of the given market
 | ---- | ---- | ----------- |
 | [0] | address | The host address of the market |
 
-### handOverHost
+### prepareHandOverHost
 
 ```solidity
-function handOverHost(address market, address newHost) external
+function prepareHandOverHost(address market, address newHost) external
 ```
 
-Hand over the right of the host to a new address
+Sets the new host address for the given market address.
 
 _Only the market host can call this function_
 
@@ -272,12 +333,135 @@ _Only the market host can call this function_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| market | address | The address of the target market |
-| newHost | address | The address of a new host |
+| market | address | The market address for which the host will be changed. |
+| newHost | address | The new host address for the given market. |
+
+### executeHandOverHost
+
+```solidity
+function executeHandOverHost(address market) external
+```
+
+Changes the host address of the given market to the address set by prepareHandOverHost function.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| market | address | The market address for which the host will be changed. |
 
 ### computeTokenAddress
 
 ```solidity
-function computeTokenAddress(int96 nonce_) external view returns (address)
+function computeTokenAddress(uint256 nonce_) external view returns (address)
 ```
+
+Compute OrderNFT contract address
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| nonce_ | uint256 | The seed number to compute OrderNFT contract address via CREATE2 |
+
+### MarketType
+
+```solidity
+enum MarketType {
+  NONE,
+  VOLATILE,
+  STABLE
+}
+```
+
+### MarketInfo
+
+```solidity
+struct MarketInfo {
+  address host;
+  enum CloberMarketFactory.MarketType marketType;
+  uint128 a;
+  uint128 factor;
+  address futureHost;
+}
+```
+
+### getMarketInfo
+
+```solidity
+function getMarketInfo(address market) external view returns (struct CloberMarketFactory.MarketInfo marketInfo)
+```
+
+Returns the price book information of the market
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| market | address | The address of the market |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| marketInfo | struct CloberMarketFactory.MarketInfo | The MarketInfo structure of the given market |
+
+### setQuoteTokenRegistration
+
+```solidity
+function setQuoteTokenRegistration(address token, bool registered) external
+```
+
+Registers or unregisters the specified token address as a quote token.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | address | The address of the token to register or unregister. |
+| registered | bool | Whether to register or unregister the token. |
+
+### encodeOrderTokenName
+
+```solidity
+function encodeOrderTokenName(address quoteToken, address baseToken, uint256 nonce_) external view returns (string)
+```
+
+Encodes the name of the order token
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| quoteToken | address | The address of a new market's quote token |
+| baseToken | address | The address of a new market's base token |
+| nonce_ | uint256 | The seed number to generate a market |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | string | The name of the order token |
+
+### encodeOrderTokenSymbol
+
+```solidity
+function encodeOrderTokenSymbol(address quoteToken, address baseToken, uint256 nonce_) external view returns (string)
+```
+
+Encodes the symbol of the order token
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| quoteToken | address | The address of a new market's quote token |
+| baseToken | address | The address of a new market's base token |
+| nonce_ | uint256 | The seed number to generate a market |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | string | The symbol of the order token |
 

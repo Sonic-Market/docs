@@ -7,8 +7,8 @@ function cloberMarketSwapCallback(address inputToken, address outputToken, uint2
 ```
 
 The user of OrderBook should implement this method.
-       In this method, the user has to send required token, or the transaction will revert.
-       If there is an claim bounty amount to be refunded, it will transfer via msg.value.
+In this method, the user has to send required token, or the transaction will revert.
+If there is an claim bounty amount to be refunded, it will transfer via msg.value.
 
 #### Parameters
 

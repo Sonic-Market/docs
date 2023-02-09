@@ -76,10 +76,10 @@ Emitted by the market when the maker's taken order is claimed
 | priceIndex | uint16 | The index of the price on the price book |
 | isBase | bool | The flag indicating whether the user receives the base token or the quote token |
 
-### FlashLoan
+### Flash
 
 ```solidity
-event FlashLoan(address caller, address borrower, uint256 quoteAmount, uint256 baseAmount, uint256 earnedQuote, uint256 earnedBase)
+event Flash(address caller, address borrower, uint256 quoteAmount, uint256 baseAmount, uint256 earnedQuote, uint256 earnedBase)
 ```
 
 Emitted by the market when someone flash-loaned the tokens
@@ -99,7 +99,7 @@ Emitted by the market when someone flash-loaned the tokens
 
 ```solidity
 struct Order {
-  uint64 openOrderAmount;
+  uint64 openAmount;
   uint32 claimBounty;
   address owner;
 }
@@ -112,7 +112,7 @@ function limitOrder(address user, uint16 priceIndex, uint64 rawAmount, uint256 b
 ```
 
 Take all the liquidity better or equal to the given priceIndex with the given tokens
-       and add liquidity to make an order with the remaining tokens.
+and add liquidity to make an order with the remaining tokens.
 
 _`msg.value` will be used for claimBounty, the fee amount in native token that claimer will take in future_
 
@@ -124,7 +124,7 @@ _`msg.value` will be used for claimBounty, the fee amount in native token that c
 | priceIndex | uint16 | The index of the price on the price book |
 | rawAmount | uint64 | The raw quote amount to trade, utilized at bid |
 | baseAmount | uint256 | The base token amount to trade, utilized at ask |
-| options | uint8 | The value contains all options in bit scale.               `isBid` option for the right 1st bit, `postOnly` option for right 2nd bit. |
+| options | uint8 | The value contains all options in bit scale. `isBid` option for the right 1st bit, `postOnly` option for right 2nd bit. |
 | data | bytes | Custom callback data |
 
 #### Return Values
@@ -132,6 +132,23 @@ _`msg.value` will be used for claimBounty, the fee amount in native token that c
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | [0] | uint256 | The order index. If an order is not made `type(uint256).max` is returned instead. |
+
+### getExpectedAmount
+
+```solidity
+function getExpectedAmount(uint16 limitPriceIndex, uint64 rawAmount, uint256 baseAmount, uint8 options) external view returns (uint256, uint256)
+```
+
+Returns the expected input amount, output amount for given param.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| limitPriceIndex | uint16 | The price index to take until |
+| rawAmount | uint64 | The raw amount to trade. This value utilizes as maxRequiredAmount at bid or minReceivedAmount at ask. |
+| baseAmount | uint256 | The base token amount to trade. This value utilizes as maxRequiredAmount at ask or minReceivedAmount at bid |
+| options | uint8 | The value contains all options in bit scale. `isBid` option for the right 1st bit, `expendInput` option for right 2nd bit. |
 
 ### marketOrder
 
@@ -147,25 +164,15 @@ Take all the liquidity with the given tokens until the given priceIndex
 | ---- | ---- | ----------- |
 | user | address | The taker address |
 | limitPriceIndex | uint16 | The price index to take until |
-| rawAmount | uint64 | The raw amount to trade.        This value utilizes as maxRequiredAmount at bid or minReceivedAmount at ask. |
-| baseAmount | uint256 | The base token amount to trade. If withBase, baseAmount        This value utilizes as maxRequiredAmount at ask or minReceivedAmount at bid |
-| options | uint8 | The value contains all options in bit scale.               `isBid` option for the right 1st bit, `expendInput` option for right 2nd bit. |
+| rawAmount | uint64 | The raw amount to trade. This value utilizes as maxRequiredAmount at bid or minReceivedAmount at ask. |
+| baseAmount | uint256 | The base token amount to trade. This value utilizes as maxRequiredAmount at ask or minReceivedAmount at bid |
+| options | uint8 | The value contains all options in bit scale. `isBid` option for the right 1st bit, `expendInput` option for right 2nd bit. |
 | data | bytes | Custom callback data |
-
-### OrderKey
-
-```solidity
-struct OrderKey {
-  bool isBid;
-  uint16 priceIndex;
-  uint256 orderIndex;
-}
-```
 
 ### cancel
 
 ```solidity
-function cancel(address receiver, struct CloberOrderBook.OrderKey[] orderKeys) external
+function cancel(address receiver, struct OrderKey[] orderKeys) external
 ```
 
 Cancel orders by claimIds
@@ -177,12 +184,12 @@ _The length of orderKeys must be controlled by the caller to avoid block gas lim
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | receiver | address | The address to receive canceled tokens |
-| orderKeys | struct CloberOrderBook.OrderKey[] | The order keys of the orders to cancel |
+| orderKeys | struct OrderKey[] | The order keys of the orders to cancel |
 
 ### claim
 
 ```solidity
-function claim(address claimer, struct CloberOrderBook.OrderKey[] orderKeys) external
+function claim(address claimer, struct OrderKey[] orderKeys) external
 ```
 
 Claim the taken orders
@@ -194,12 +201,12 @@ _The length of orderKeys must be controlled by the caller to avoid block gas lim
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | claimer | address | The address to receive claim bounty |
-| orderKeys | struct CloberOrderBook.OrderKey[] | The order keys of the orders to claim |
+| orderKeys | struct OrderKey[] | The order keys of the orders to claim |
 
-### flashLoan
+### flash
 
 ```solidity
-function flashLoan(address borrower, uint256 quoteAmount, uint256 baseAmount, bytes data) external
+function flash(address borrower, uint256 quoteAmount, uint256 baseAmount, bytes data) external
 ```
 
 Flash loan the tokens in OrderBook
@@ -212,20 +219,6 @@ Flash loan the tokens in OrderBook
 | quoteAmount | uint256 | The quote token amount to borrow |
 | baseAmount | uint256 | The base token amount to borrow |
 | data | bytes | The user's custom callback data |
-
-### marketId
-
-```solidity
-function marketId() external view returns (int96)
-```
-
-Returns the id of the market
-
-#### Return Values
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | int96 | The id is a nonce assigned by the factory when deploying this market |
 
 ### quoteUnit
 
@@ -347,6 +340,46 @@ Returns the fee balance that has not been collected yet
 | quote | uint128 | The current fee balance for the quote token |
 | base | uint128 | The current fee balance for the base token |
 
+### hostReadyToBeDelivered
+
+```solidity
+function hostReadyToBeDelivered(address token) external view returns (uint256)
+```
+
+Returns the amount of token that can be delivered to the host address.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | address | The address of the token to be delivered. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The amount of token that can be delivered to the host address. |
+
+### daoReadyToBeDelivered
+
+```solidity
+function daoReadyToBeDelivered(address token) external view returns (uint256)
+```
+
+Returns the amount of token that can be delivered to the dao treasury address.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | address | The address of the token to be delivered. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | The amount of token that can be delivered to the dao treasury address. |
+
 ### isEmpty
 
 ```solidity
@@ -370,7 +403,7 @@ Returns whether the order book is empty or not
 ### getOrder
 
 ```solidity
-function getOrder(struct CloberOrderBook.OrderKey orderKey) external view returns (struct CloberOrderBook.Order)
+function getOrder(struct OrderKey orderKey) external view returns (struct CloberOrderBook.Order)
 ```
 
 Returns the order information
@@ -379,7 +412,7 @@ Returns the order information
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| orderKey | struct CloberOrderBook.OrderKey | The order key of the order |
+| orderKey | struct OrderKey | The order key of the order |
 
 #### Return Values
 
@@ -410,17 +443,22 @@ Returns the lowest ask price index or the highest bid price index
 ### collectFees
 
 ```solidity
-function collectFees() external
+function collectFees(address token, address destination) external
 ```
 
 Collect protocol fees
 
-_Only the market host can call this function_
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | address | The token address to collect. It should be the quote token or the base token. |
+| destination | address | The destination address to transfer fees. It should be the dao treasury address or the host address. |
 
 ### changeOrderOwner
 
 ```solidity
-function changeOrderOwner(struct CloberOrderBook.OrderKey orderKey, address newOwner) external
+function changeOrderOwner(struct OrderKey orderKey, address newOwner) external
 ```
 
 Change the owner of the order
@@ -431,6 +469,6 @@ _Only the token contract can call this function_
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| orderKey | struct CloberOrderBook.OrderKey | The order key of the order |
+| orderKey | struct OrderKey | The order key of the order |
 | newOwner | address | The new owner address of the order |
 
