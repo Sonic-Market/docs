@@ -1,5 +1,8 @@
 ## CloberDirtyUint64
 
+Adds, subtracts, and converts clean (original) and dirty (a non-zero representation of the original)
+`uint64` values.
+
 ### toDirtyUnsafe
 
 ```solidity

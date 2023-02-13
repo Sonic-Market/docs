@@ -22,19 +22,19 @@ struct LimitOrderParams {
 function limitBid(struct CloberRouter.LimitOrderParams params) external payable returns (uint256)
 ```
 
-Make limit order in bid side
+Places a limit order on the bid side.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| params | struct CloberRouter.LimitOrderParams | The limit order parameters |
+| params | struct CloberRouter.LimitOrderParams | The limit order parameters. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The order Id of the submitted limit bid order. |
+| [0] | uint256 | The order index. If an order is not made `type(uint256).max` is returned instead. |
 
 ### limitAsk
 
@@ -42,19 +42,19 @@ Make limit order in bid side
 function limitAsk(struct CloberRouter.LimitOrderParams params) external payable returns (uint256)
 ```
 
-Make limit order in ask side
+Places a limit order on the ask side.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| params | struct CloberRouter.LimitOrderParams | The limit order parameters |
+| params | struct CloberRouter.LimitOrderParams | The limit order parameters. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The order Id of the submitted limit ask order. |
+| [0] | uint256 | The order index. If an order is not made `type(uint256).max` is returned instead. |
 
 ### MarketOrderParams
 
@@ -77,13 +77,13 @@ struct MarketOrderParams {
 function marketBid(struct CloberRouter.MarketOrderParams params) external payable
 ```
 
-Make market order in bid side
+Place a market order on the bid side.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| params | struct CloberRouter.MarketOrderParams | The market order parameters |
+| params | struct CloberRouter.MarketOrderParams | The market order parameters. |
 
 ### marketAsk
 
@@ -91,13 +91,13 @@ Make market order in bid side
 function marketAsk(struct CloberRouter.MarketOrderParams params) external payable
 ```
 
-Make market order in bid side
+Place a market order on the ask side.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| params | struct CloberRouter.MarketOrderParams | The market order parameters |
+| params | struct CloberRouter.MarketOrderParams | The market order parameters. |
 
 ### ClaimOrderParams
 
@@ -114,13 +114,13 @@ struct ClaimOrderParams {
 function claim(uint64 deadline, struct CloberRouter.ClaimOrderParams[] paramsList) external
 ```
 
-Claim orders across markets
+Claims orders across markets.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| deadline | uint64 | The TTL of transaction in block timestamp |
+| deadline | uint64 | The deadline for the transaction. Reverts if the block timestamp is greater than this value. |
 | paramsList | struct CloberRouter.ClaimOrderParams[] | The list of ClaimOrderParams |
 
 ### limitBidAfterClaim
@@ -142,7 +142,7 @@ Submits a limit bid order to the order book after claiming a list of orders.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The order Id of the submitted limit bid order. |
+| [0] | uint256 | The order index. If an order is not made `type(uint256).max` is returned instead. |
 
 ### limitAskAfterClaim
 
@@ -163,7 +163,7 @@ Submits a limit ask order to the order book after claiming a list of orders.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The order Id of the submitted limit ask order. |
+| [0] | uint256 | The order index. If an order is not made `type(uint256).max` is returned instead. |
 
 ### marketBidAfterClaim
 

@@ -1,7 +1,7 @@
 ## CloberPackedUint256
 
-This library treats uint256 as a group of uint8, uint16, or uint32 and adds, subtracts,
-or updates the elements of the group by indexing them.
+This library treats uint256 as a group of uint8, uint16, uint32, or uint64 and adds,
+subtracts, or updates the elements of the group by indexing them.
 `*Unsafe` optimizes gas costs by using assembly under the assumption
 that the user will not provide an input that would cause an arithmetic underflow or overflow.
 
@@ -11,20 +11,20 @@ that the user will not provide an input that would cause an arithmetic underflow
 function get8Unsafe(uint256 packed, uint256 index) external pure returns (uint8)
 ```
 
-Retrieves a uint8 from the packed value at the specified index with unchecked.
+Retrieves a uint8 from the packed uint256 at the specified index with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to retrieve the uint8 from. |
+| packed | uint256 | The packed uint256 to retrieve the uint8 from. |
 | index | uint256 | The index of the uint8 to retrieve. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint8 | The uint8 at the specified index of the packed value. |
+| [0] | uint8 | The uint8 at the specified index of the packed uint256. |
 
 ### get8
 
@@ -32,20 +32,20 @@ Retrieves a uint8 from the packed value at the specified index with unchecked.
 function get8(uint256 packed, uint256 index) external pure returns (uint8)
 ```
 
-Retrieves a uint8 from the packed value at the specified index.
+Retrieves a uint8 from the packed uint256 at the specified index.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to retrieve the uint8 from. |
+| packed | uint256 | The packed uint256 to retrieve the uint8 from. |
 | index | uint256 | The index of the uint8 to retrieve. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint8 | The uint8 at the specified index of the packed value. |
+| [0] | uint8 | The uint8 at the specified index of the packed uint256. |
 
 ### get16Unsafe
 
@@ -53,20 +53,20 @@ Retrieves a uint8 from the packed value at the specified index.
 function get16Unsafe(uint256 packed, uint256 index) external pure returns (uint16)
 ```
 
-Retrieves a uint16 from the packed value at the specified index with unchecked.
+Retrieves a uint16 from the packed uint256 at the specified index with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to retrieve the uint16 from. |
+| packed | uint256 | The packed uint256 to retrieve the uint16 from. |
 | index | uint256 | The index of the uint16 to retrieve. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint16 | The uint16 at the specified index of the packed value. |
+| [0] | uint16 | The uint16 at the specified index of the packed uint256. |
 
 ### get16
 
@@ -74,20 +74,20 @@ Retrieves a uint16 from the packed value at the specified index with unchecked.
 function get16(uint256 packed, uint256 index) external pure returns (uint16)
 ```
 
-Retrieves a uint16 from the packed value at the specified index.
+Retrieves a uint16 from the packed uint256 at the specified index.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to retrieve the uint16 from. |
+| packed | uint256 | The packed uint256 to retrieve the uint16 from. |
 | index | uint256 | The index of the uint16 to retrieve. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint16 | The uint16 at the specified index of the packed value. |
+| [0] | uint16 | The uint16 at the specified index of the packed uint256. |
 
 ### get32Unsafe
 
@@ -95,20 +95,20 @@ Retrieves a uint16 from the packed value at the specified index.
 function get32Unsafe(uint256 packed, uint256 index) external pure returns (uint32)
 ```
 
-Retrieves a uint32 from the packed value at the specified index with unchecked.
+Retrieves a uint32 from the packed uint256 at the specified index with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to retrieve the uint32 from. |
+| packed | uint256 | The packed uint256 to retrieve the uint32 from. |
 | index | uint256 | The index of the uint32 to retrieve. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint32 | The uint32 at the specified index of the packed value. |
+| [0] | uint32 | The uint32 at the specified index of the packed uint256. |
 
 ### get32
 
@@ -116,20 +116,20 @@ Retrieves a uint32 from the packed value at the specified index with unchecked.
 function get32(uint256 packed, uint256 index) external pure returns (uint32)
 ```
 
-Retrieves a uint32 from the packed value at the specified index.
+Retrieves a uint32 from the packed uint256 at the specified index.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to retrieve the uint32 from. |
+| packed | uint256 | The packed uint256 to retrieve the uint32 from. |
 | index | uint256 | The index of the uint32 to retrieve. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint32 | The uint32 at the specified index of the packed value. |
+| [0] | uint32 | The uint32 at the specified index of the packed uint256. |
 
 ### get64Unsafe
 
@@ -137,20 +137,20 @@ Retrieves a uint32 from the packed value at the specified index.
 function get64Unsafe(uint256 packed, uint256 index) external pure returns (uint64)
 ```
 
-Retrieves a uint64 from the packed value at the specified index with unchecked.
+Retrieves a uint64 from the packed uint256 at the specified index with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to retrieve the uint64 from. |
+| packed | uint256 | The packed uint256 to retrieve the uint64 from. |
 | index | uint256 | The index of the uint64 to retrieve. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint64 | The uint64 at the specified index of the packed value. |
+| [0] | uint64 | The uint64 at the specified index of the packed uint256. |
 
 ### get64
 
@@ -158,20 +158,20 @@ Retrieves a uint64 from the packed value at the specified index with unchecked.
 function get64(uint256 packed, uint256 index) external pure returns (uint64)
 ```
 
-Retrieves a uint64 from the packed value at the specified index.
+Retrieves a uint64 from the packed uint256 at the specified index.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to retrieve the uint64 from. |
+| packed | uint256 | The packed uint256 to retrieve the uint64 from. |
 | index | uint256 | The index of the uint64 to retrieve. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint64 | The uint64 at the specified index of the packed value. |
+| [0] | uint64 | The uint64 at the specified index of the packed uint256. |
 
 ### add8Unsafe
 
@@ -179,13 +179,13 @@ Retrieves a uint64 from the packed value at the specified index.
 function add8Unsafe(uint256 packed, uint256 index, uint8 value) external pure returns (uint256)
 ```
 
-Adds a uint8 value to the packed value at the specified index with unchecked.
+Adds a uint8 value to a uint8 element in the packed uint256 with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to add the uint8 to. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to add the uint8. |
 | value | uint8 | The uint8 value to add. |
 
@@ -193,7 +193,7 @@ Adds a uint8 value to the packed value at the specified index with unchecked.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint8 added at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint8 added at the specified index. |
 
 ### add8
 
@@ -201,13 +201,13 @@ Adds a uint8 value to the packed value at the specified index with unchecked.
 function add8(uint256 packed, uint256 index, uint8 value) external pure returns (uint256)
 ```
 
-Adds a uint8 value to the packed value at the specified index.
+Adds a uint8 value to a uint8 element in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to add the uint8 to. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to add the uint8. |
 | value | uint8 | The uint8 value to add. |
 
@@ -215,7 +215,7 @@ Adds a uint8 value to the packed value at the specified index.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint8 added at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint8 added at the specified index. |
 
 ### add16Unsafe
 
@@ -223,13 +223,13 @@ Adds a uint8 value to the packed value at the specified index.
 function add16Unsafe(uint256 packed, uint256 index, uint16 value) external pure returns (uint256)
 ```
 
-Adds a uint16 value to the packed value at the specified index with unchecked.
+Adds a uint16 value to a uint16 element in the packed uint256 with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to add the uint16 to. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to add the uint16. |
 | value | uint16 | The uint16 value to add. |
 
@@ -237,7 +237,7 @@ Adds a uint16 value to the packed value at the specified index with unchecked.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint16 added at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint16 added at the specified index. |
 
 ### add16
 
@@ -245,13 +245,13 @@ Adds a uint16 value to the packed value at the specified index with unchecked.
 function add16(uint256 packed, uint256 index, uint16 value) external pure returns (uint256)
 ```
 
-Adds a uint16 value to the packed value at the specified index.
+Adds a uint16 value to a uint16 element in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to add the uint16 to. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to add the uint16. |
 | value | uint16 | The uint16 value to add. |
 
@@ -259,7 +259,7 @@ Adds a uint16 value to the packed value at the specified index.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint16 added at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint16 added at the specified index. |
 
 ### add32Unsafe
 
@@ -267,13 +267,13 @@ Adds a uint16 value to the packed value at the specified index.
 function add32Unsafe(uint256 packed, uint256 index, uint32 value) external pure returns (uint256)
 ```
 
-Adds a uint32 value to the packed value at the specified index with unchecked.
+Adds a uint32 value to a uint32 element in the packed uint256 with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to add the uint32 to. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to add the uint32. |
 | value | uint32 | The uint32 value to add. |
 
@@ -281,7 +281,7 @@ Adds a uint32 value to the packed value at the specified index with unchecked.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint32 added at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint32 added at the specified index. |
 
 ### add32
 
@@ -289,13 +289,13 @@ Adds a uint32 value to the packed value at the specified index with unchecked.
 function add32(uint256 packed, uint256 index, uint32 value) external pure returns (uint256)
 ```
 
-Adds a uint32 value to the packed value at the specified index.
+Adds a uint32 value to a uint32 element in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to add the uint32 to. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to add the uint32. |
 | value | uint32 | The uint32 value to add. |
 
@@ -303,7 +303,7 @@ Adds a uint32 value to the packed value at the specified index.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint32 added at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint32 added at the specified index. |
 
 ### add64Unsafe
 
@@ -311,13 +311,13 @@ Adds a uint32 value to the packed value at the specified index.
 function add64Unsafe(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
 ```
 
-Adds a uint64 value to the packed value at the specified index with unchecked.
+Adds a uint64 value to a uint64 element in the packed uint256 with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to add the uint64 to. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to add the uint64. |
 | value | uint64 | The uint64 value to add. |
 
@@ -325,7 +325,7 @@ Adds a uint64 value to the packed value at the specified index with unchecked.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint64 added at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint64 added at the specified index. |
 
 ### add64
 
@@ -333,13 +333,13 @@ Adds a uint64 value to the packed value at the specified index with unchecked.
 function add64(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
 ```
 
-Adds a uint64 value to the packed value at the specified index.
+Adds a uint64 value to a uint64 element in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to add the uint64 to. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to add the uint64. |
 | value | uint64 | The uint64 value to add. |
 
@@ -347,7 +347,7 @@ Adds a uint64 value to the packed value at the specified index.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint64 added at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint64 added at the specified index. |
 
 ### sub8Unsafe
 
@@ -355,13 +355,13 @@ Adds a uint64 value to the packed value at the specified index.
 function sub8Unsafe(uint256 packed, uint256 index, uint8 value) external pure returns (uint256)
 ```
 
-Subtracts a uint8 value from the packed value at the specified index with unchecked.
+Subtracts a uint8 value to a uint8 element in the packed uint256 with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to subtract the uint8 from. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to subtract the uint8. |
 | value | uint8 | The uint8 value to subtract. |
 
@@ -369,7 +369,7 @@ Subtracts a uint8 value from the packed value at the specified index with unchec
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint8 subtracted at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint8 subtracted at the specified index. |
 
 ### sub8
 
@@ -377,13 +377,13 @@ Subtracts a uint8 value from the packed value at the specified index with unchec
 function sub8(uint256 packed, uint256 index, uint8 value) external pure returns (uint256)
 ```
 
-Subtracts a uint8 value from the packed value at the specified index.
+Subtracts a uint8 value to a uint8 element in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to subtract the uint8 from. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to subtract the uint8. |
 | value | uint8 | The uint8 value to subtract. |
 
@@ -391,7 +391,7 @@ Subtracts a uint8 value from the packed value at the specified index.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint8 subtracted at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint8 subtracted at the specified index. |
 
 ### sub16Unsafe
 
@@ -399,13 +399,13 @@ Subtracts a uint8 value from the packed value at the specified index.
 function sub16Unsafe(uint256 packed, uint256 index, uint16 value) external pure returns (uint256)
 ```
 
-Subtracts a uint16 value from the packed value at the specified index with unchecked.
+Subtracts a uint16 value from the packed uint256 at the specified index with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to subtract the uint16 from. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to subtract the uint16. |
 | value | uint16 | The uint16 value to subtract. |
 
@@ -413,7 +413,7 @@ Subtracts a uint16 value from the packed value at the specified index with unche
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint16 subtracted at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint16 subtracted at the specified index. |
 
 ### sub16
 
@@ -421,13 +421,13 @@ Subtracts a uint16 value from the packed value at the specified index with unche
 function sub16(uint256 packed, uint256 index, uint16 value) external pure returns (uint256)
 ```
 
-Subtracts a uint16 value from the packed value at the specified index.
+Subtracts a uint16 value to a uint16 element in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to subtract the uint16 from. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to subtract the uint16. |
 | value | uint16 | The uint16 value to subtract. |
 
@@ -435,7 +435,7 @@ Subtracts a uint16 value from the packed value at the specified index.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint16 subtracted at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint16 subtracted at the specified index. |
 
 ### sub32Unsafe
 
@@ -443,13 +443,13 @@ Subtracts a uint16 value from the packed value at the specified index.
 function sub32Unsafe(uint256 packed, uint256 index, uint32 value) external pure returns (uint256)
 ```
 
-Subtracts a uint32 value from the packed value at the specified index with unchecked.
+Subtracts a uint32 value to a uint32 element in the packed uint256 with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to subtract the uint32 from. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to subtract the uint32. |
 | value | uint32 | The uint32 value to subtract. |
 
@@ -457,7 +457,7 @@ Subtracts a uint32 value from the packed value at the specified index with unche
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint32 subtracted at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint32 subtracted at the specified index. |
 
 ### sub32
 
@@ -465,13 +465,13 @@ Subtracts a uint32 value from the packed value at the specified index with unche
 function sub32(uint256 packed, uint256 index, uint32 value) external pure returns (uint256)
 ```
 
-Subtracts a uint32 value from the packed value at the specified index.
+Subtracts a uint32 value to a uint32 element in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to subtract the uint32 from. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to subtract the uint32. |
 | value | uint32 | The uint32 value to subtract. |
 
@@ -479,7 +479,7 @@ Subtracts a uint32 value from the packed value at the specified index.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint32 subtracted at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint32 subtracted at the specified index. |
 
 ### sub64Unsafe
 
@@ -487,13 +487,13 @@ Subtracts a uint32 value from the packed value at the specified index.
 function sub64Unsafe(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
 ```
 
-Subtracts a uint64 value from the packed value at the specified index with unchecked.
+Subtracts a uint64 value to a uint64 element in the packed uint256 with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to subtract the uint64 from. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to subtract the uint64. |
 | value | uint64 | The uint64 value to subtract. |
 
@@ -501,7 +501,7 @@ Subtracts a uint64 value from the packed value at the specified index with unche
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint64 subtracted at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint64 subtracted at the specified index. |
 
 ### sub64
 
@@ -509,13 +509,13 @@ Subtracts a uint64 value from the packed value at the specified index with unche
 function sub64(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
 ```
 
-Subtracts a uint64 value from the packed value at the specified index.
+Subtracts a uint64 value to a uint64 element in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to subtract the uint64 from. |
+| packed | uint256 | The packed uint256. |
 | index | uint256 | The index at which to subtract the uint64. |
 | value | uint64 | The uint64 value to subtract. |
 
@@ -523,7 +523,7 @@ Subtracts a uint64 value from the packed value at the specified index.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint64 subtracted at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint64 subtracted at the specified index. |
 
 ### update8Unsafe
 
@@ -531,21 +531,21 @@ Subtracts a uint64 value from the packed value at the specified index.
 function update8Unsafe(uint256 packed, uint256 index, uint8 value) external pure returns (uint256)
 ```
 
-Updates the packed value at the specified index with a uint8 value with unchecked.
+Updates the packed uint256 at the specified index with a uint8 value with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to update. |
-| index | uint256 | The index of the packed value to update. |
-| value | uint8 | The uint8 value to update the packed value with. |
+| packed | uint256 | The packed uint256. |
+| index | uint256 | The index of the packed uint256 to update. |
+| value | uint8 | The uint8 value to update the packed uint256 with. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint8 value at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint8 value at the specified index. |
 
 ### update8
 
@@ -553,21 +553,21 @@ Updates the packed value at the specified index with a uint8 value with unchecke
 function update8(uint256 packed, uint256 index, uint8 value) external pure returns (uint256)
 ```
 
-Updates the packed value at the specified index with a uint8 value.
+Updates the packed uint256 at the specified index with a uint8 value.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to update. |
-| index | uint256 | The index of the packed value to update. |
-| value | uint8 | The uint8 value to update the packed value with. |
+| packed | uint256 | The packed uint256. |
+| index | uint256 | The index of the packed uint256 to update. |
+| value | uint8 | The uint8 value to update the packed uint256 with. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint8 value at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint8 value at the specified index. |
 
 ### update16Unsafe
 
@@ -575,21 +575,21 @@ Updates the packed value at the specified index with a uint8 value.
 function update16Unsafe(uint256 packed, uint256 index, uint16 value) external pure returns (uint256)
 ```
 
-Updates the packed value at the specified index with a uint16 value with unchecked.
+Updates the packed uint256 at the specified index with a uint16 value with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to update. |
-| index | uint256 | The index of the packed value to update. |
-| value | uint16 | The uint16 value to update the packed value with. |
+| packed | uint256 | The packed uint256. |
+| index | uint256 | The index of the packed uint256 to update. |
+| value | uint16 | The uint16 value to update the packed uint256 with. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint16 value at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint16 value at the specified index. |
 
 ### update16
 
@@ -597,21 +597,21 @@ Updates the packed value at the specified index with a uint16 value with uncheck
 function update16(uint256 packed, uint256 index, uint16 value) external pure returns (uint256)
 ```
 
-Updates the packed value at the specified index with a uint16 value.
+Updates the packed uint256 at the specified index with a uint16 value.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to update. |
-| index | uint256 | The index of the packed value to update. |
-| value | uint16 | The uint16 value to update the packed value with. |
+| packed | uint256 | The packed uint256. |
+| index | uint256 | The index of the packed uint256 to update. |
+| value | uint16 | The uint16 value to update the packed uint256 with. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint16 value at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint16 value at the specified index. |
 
 ### update32Unsafe
 
@@ -619,21 +619,21 @@ Updates the packed value at the specified index with a uint16 value.
 function update32Unsafe(uint256 packed, uint256 index, uint32 value) external pure returns (uint256)
 ```
 
-Updates the packed value at the specified index with a uint32 value with unchecked.
+Updates the packed uint256 at the specified index with a uint32 value with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to update. |
-| index | uint256 | The index of the packed value to update. |
-| value | uint32 | The uint32 value to update the packed value with. |
+| packed | uint256 | The packed uint256. |
+| index | uint256 | The index of the packed uint256 to update. |
+| value | uint32 | The uint32 value to update the packed uint256 with. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint32 value at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint32 value at the specified index. |
 
 ### update32
 
@@ -641,21 +641,21 @@ Updates the packed value at the specified index with a uint32 value with uncheck
 function update32(uint256 packed, uint256 index, uint32 value) external pure returns (uint256)
 ```
 
-Updates the packed value at the specified index with a uint32 value.
+Updates the packed uint256 at the specified index with a uint32 value.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to update. |
-| index | uint256 | The index of the packed value to update. |
-| value | uint32 | The uint32 value to update the packed value with. |
+| packed | uint256 | The packed uint256. |
+| index | uint256 | The index of the packed uint256 to update. |
+| value | uint32 | The uint32 value to update the packed uint256 with. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint32 value at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint32 value at the specified index. |
 
 ### update64Unsafe
 
@@ -663,21 +663,21 @@ Updates the packed value at the specified index with a uint32 value.
 function update64Unsafe(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
 ```
 
-Updates the packed value at the specified index with a uint64 value with unchecked.
+Updates the packed uint256 at the specified index with a uint64 value with unchecked.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to update. |
-| index | uint256 | The index of the packed value to update. |
-| value | uint64 | The uint64 value to update the packed value with. |
+| packed | uint256 | The packed uint256. |
+| index | uint256 | The index of the packed uint256 to update. |
+| value | uint64 | The uint64 value to update the packed uint256 with. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint64 value at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint64 value at the specified index. |
 
 ### update64
 
@@ -685,21 +685,21 @@ Updates the packed value at the specified index with a uint64 value with uncheck
 function update64(uint256 packed, uint256 index, uint64 value) external pure returns (uint256)
 ```
 
-Updates the packed value at the specified index with a uint64 value.
+Updates the packed uint256 at the specified index with a uint64 value.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value to update. |
-| index | uint256 | The index of the packed value to update. |
-| value | uint64 | The uint64 value to update the packed value with. |
+| packed | uint256 | The packed uint256. |
+| index | uint256 | The index of the packed uint256 to update. |
+| value | uint64 | The uint64 value to update the packed uint256 with. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The resulting packed value with the uint64 value at the specified index. |
+| [0] | uint256 | The resulting packed uint256 with the uint64 value at the specified index. |
 
 ### total32
 
@@ -707,19 +707,19 @@ Updates the packed value at the specified index with a uint64 value.
 function total32(uint256 packed) external pure returns (uint256)
 ```
 
-Calculates the sum of all the uint32 values in the packed value.
+Calculates the sum of all the uint32 values in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value containing the uint32 values to add up. |
+| packed | uint256 | The packed uint256. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The sum of all the uint32 values in the packed value. |
+| [0] | uint256 | The sum of all the uint32 values in the packed uint256. |
 
 ### total64
 
@@ -727,19 +727,19 @@ Calculates the sum of all the uint32 values in the packed value.
 function total64(uint256 packed) external pure returns (uint256)
 ```
 
-Calculates the sum of all the uint64 values in the packed value.
+Calculates the sum of all the uint64 values in the packed uint256.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value containing the uint64 values to add up. |
+| packed | uint256 | The packed uint256. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The sum of all the uint64 values in the packed value. |
+| [0] | uint256 | The sum of all the uint64 values in the packed uint256. |
 
 ### sum32
 
@@ -747,13 +747,13 @@ Calculates the sum of all the uint64 values in the packed value.
 function sum32(uint256 packed, uint256 from, uint256 to) external pure returns (uint256)
 ```
 
-Calculates the sum of the uint32 values in the packed value within the specified range.
+Calculates the sum of the uint32 values in the packed uint256 within the specified range.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value containing the uint32 values to add up. |
+| packed | uint256 | The packed uint256. |
 | from | uint256 | The starting index (inclusive) of the uint32 values to add up. |
 | to | uint256 | The ending index (exclusive) of the uint32 values to add up. |
 
@@ -761,7 +761,7 @@ Calculates the sum of the uint32 values in the packed value within the specified
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The sum of the uint32 values in the packed value within the specified range. |
+| [0] | uint256 | The sum of the uint32 values in the packed uint256 within the specified range. |
 
 ### sum64
 
@@ -769,13 +769,13 @@ Calculates the sum of the uint32 values in the packed value within the specified
 function sum64(uint256 packed, uint256 from, uint256 to) external pure returns (uint256)
 ```
 
-Calculates the sum of the uint64 values in the packed value within the specified range.
+Calculates the sum of the uint64 values in the packed uint256 within the specified range.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| packed | uint256 | The packed value containing the uint64 values to add up. |
+| packed | uint256 | The packed uint256. |
 | from | uint256 | The starting index (inclusive) of the uint64 values to add up. |
 | to | uint256 | The ending index (exclusive) of the uint64 values to add up. |
 
@@ -783,5 +783,5 @@ Calculates the sum of the uint64 values in the packed value within the specified
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The sum of the uint64 values in the packed value within the specified range. |
+| [0] | uint256 | The sum of the uint64 values in the packed uint256 within the specified range. |
 

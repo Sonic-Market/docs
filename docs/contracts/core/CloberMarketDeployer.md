@@ -6,11 +6,11 @@
 event Deploy(address market)
 ```
 
-Emitted by the market deployer when a new market has been created
+Emitted when a new market is deployed.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| market | address | The address of the generated market |
+| market | address | The address of the generated market. |
 

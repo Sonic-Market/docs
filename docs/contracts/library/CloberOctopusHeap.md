@@ -1,8 +1,8 @@
 ## CloberOctopusHeap
 
 Heap data structure that can hold up to 256 uint16 values.
-In each node, the quotient of the value to be pushed divided by 2^8 is written,
-and the remainder is expressed by flagging a bit on the uint256 at the index equal to the value of the remainder.
+Each value is stored by having the quotient divided by 2^8 added to the heap,
+and the remainder expressed as a flag on a bitmap.
 
 ### init
 
@@ -11,6 +11,8 @@ function init() external
 ```
 
 Initializes the heap.
+
+_Must be called before use._
 
 ### has
 
@@ -81,39 +83,4 @@ Returns the root value of the heap.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | [0] | uint16 | The root value of the heap. |
-
-### store
-
-```solidity
-function store(uint8 index, uint32 value) external
-```
-
-Stores a value at a specified index in the heap.
-
-#### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| index | uint8 | The index at which to store the value. |
-| value | uint32 | The value to store. |
-
-### load
-
-```solidity
-function load(uint8 index) external view returns (uint32)
-```
-
-Loads a value from a specified index in the heap.
-
-#### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| index | uint8 | The index from which to load the value. |
-
-#### Return Values
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | uint32 | The value stored at the specified index. |
 

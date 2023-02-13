@@ -6,17 +6,17 @@
 function cloberMarketSwapCallback(address inputToken, address outputToken, uint256 inputAmount, uint256 outputAmount, bytes data) external payable
 ```
 
-The user of OrderBook should implement this method.
-In this method, the user has to send required token, or the transaction will revert.
-If there is an claim bounty amount to be refunded, it will transfer via msg.value.
+Contracts placing orders on the OrderBook must implement this method.
+In this method, the contract has to send the required token, or the transaction will revert.
+If there is a claim bounty to be refunded, it will be transferred via msg.value.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| inputToken | address | The address of the token user has to send |
-| outputToken | address | The address of the token user receives |
-| inputAmount | uint256 | The amount of the token user has to send |
-| outputAmount | uint256 | The amount of the token user receives |
-| data | bytes | The user's custom callback data |
+| inputToken | address | The address of the token the user has to send. |
+| outputToken | address | The address of the token the user has received. |
+| inputAmount | uint256 | The amount of tokens the user has to send. |
+| outputAmount | uint256 | The amount of tokens the user has received. |
+| data | bytes | The user's custom callback data. |
 

@@ -6,13 +6,13 @@
 function baseURI() external view returns (string)
 ```
 
-Returns the base URI for the metadata of this token.
+Returns the base URI for the metadata of this NFT collection.
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | string | The base URI for the metadata of this token. |
+| [0] | string | The base URI for the metadata of this NFT collection. |
 
 ### market
 
@@ -28,6 +28,20 @@ Returns the address of the market contract that manages this token.
 | ---- | ---- | ----------- |
 | [0] | address | The address of the market contract that manages this token. |
 
+### owner
+
+```solidity
+function owner() external view returns (address)
+```
+
+Returns the address of contract owner.
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the contract owner. |
+
 ### onMint
 
 ```solidity
@@ -41,7 +55,7 @@ Called when a new token is minted.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | to | address | The receiver address of the minted token. |
-| tokenId | uint256 | The Id of the token to mint. |
+| tokenId | uint256 | The id of the token minted. |
 
 ### onBurn
 
@@ -55,21 +69,21 @@ Called when a token is burned.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| tokenId | uint256 | The Id of the token to burn. |
+| tokenId | uint256 | The id of the token burned. |
 
 ### changeBaseURI
 
 ```solidity
-function changeBaseURI(string _baseURI) external
+function changeBaseURI(string newBaseURI) external
 ```
 
-Changes the base URI for the metadata of this token.
+Changes the base URI for the metadata of this NFT collection.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| _baseURI | string | The new base URI for the metadata of this token. |
+| newBaseURI | string | The new base URI for the metadata of this NFT collection. |
 
 ### decodeId
 
@@ -77,19 +91,19 @@ Changes the base URI for the metadata of this token.
 function decodeId(uint256 id) external pure returns (struct OrderKey)
 ```
 
-Decodes an Id for this token into an order key.
+Decodes a token id into an order key.
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| id | uint256 | The Id to decode. |
+| id | uint256 | The id to decode. |
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | struct OrderKey | The order key corresponding to the given Id. |
+| [0] | struct OrderKey | The order key corresponding to the given id. |
 
 ### encodeId
 
@@ -97,7 +111,7 @@ Decodes an Id for this token into an order key.
 function encodeId(struct OrderKey orderKey) external pure returns (uint256)
 ```
 
-Encodes an order key as an Id for this token.
+Encodes an order key to a token id.
 
 #### Parameters
 
@@ -109,7 +123,7 @@ Encodes an order key as an Id for this token.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | uint256 | The Id corresponding to the given order key. |
+| [0] | uint256 | The id corresponding to the given order key. |
 
 ### cancel
 
@@ -117,15 +131,15 @@ Encodes an order key as an Id for this token.
 function cancel(address from, uint256[] tokenIds, address receiver) external
 ```
 
-Cancels the order of a token.
+Cancels orders with token ids.
 
-_Only OrderCanceler can call this function._
+_Only the OrderCanceler can call this function._
 
 #### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| from | address | The address of the owner of the token. |
-| tokenIds | uint256[] | The Ids of the tokens to cancel. |
-| receiver | address | The address to send the tokens to after they are canceled. |
+| from | address | The address of the owner of the tokens. |
+| tokenIds | uint256[] | The ids of the tokens to cancel. |
+| receiver | address | The address to send the underlying assets to. |
 

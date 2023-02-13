@@ -2,7 +2,7 @@
 
 uint64 values are stored here to efficiently query the sum of a given range.
 A total of 32768 values can be stored in the segment tree.
-A query will require at most 14 storage reads, and an update to the tree will require at most 4 storage writes.
+A query will require at most 14 storage reads, and an update to the tree will require 4 storage writes.
 The sum of all nodes should not exceed uint64.
 
 ### update
@@ -18,7 +18,7 @@ Updates the value at the specified index in the segment tree.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | index | uint256 | The index of the value to update. |
-| value | uint64 | The value to update the index with. |
+| value | uint64 | The value to update with. |
 
 #### Return Values
 

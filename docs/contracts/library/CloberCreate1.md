@@ -1,6 +1,6 @@
 ## CloberCreate1
 
-This library is group of functions about `CREATE1` opcode of EVM.
+Utility functions regarding the vanilla `CREATE` operation.
 
 ### computeAddress
 
@@ -8,7 +8,7 @@ This library is group of functions about `CREATE1` opcode of EVM.
 function computeAddress(address origin, uint64 nonce) external pure returns (address)
 ```
 
-Computes the address of a contract given an origin address and a nonce value.
+Computes the address of the contract with the origin address and nonce value.
 
 #### Parameters
 
