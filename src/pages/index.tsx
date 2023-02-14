@@ -32,7 +32,7 @@ export const actions = [
   {
     title: 'Trade Now!',
     icon: ArrowRightCircle,
-    to: 'https://beta.clober.io',
+    to: 'https://app.clober.io',
     text: `Place limit orders on our fully on-chain order book. Have CEX on DEX!`,
   },
 ]
