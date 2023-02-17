@@ -61,7 +61,7 @@ const config = {
       },
       algolia: {
         apiKey: '403cfcb838d3306c2cd5ebc1f06f5ac9',
-        indexName: 'clober-dex',
+        indexName: 'docs',
         appId: 'N3RLNMQ10C',
       },
       navbar: {
