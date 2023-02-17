@@ -60,9 +60,9 @@ const config = {
         additionalLanguages: ['solidity'],
       },
       algolia: {
-        apiKey: '32465e2ab6f7554ff014e64c0d92171c',
-        indexName: 'v3-docs',
-        appId: 'S0IDD0YGLZ',
+        apiKey: '403cfcb838d3306c2cd5ebc1f06f5ac9',
+        indexName: 'clober-dex',
+        appId: 'N3RLNMQ10C',
       },
       navbar: {
         title: 'Clober Docs',
