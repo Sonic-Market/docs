@@ -76,11 +76,11 @@ const config = {
             label: 'Concepts',
             position: 'left',
           },
-          {
-            to: '/contracts/guides',
-            label: 'User Guides',
-            position: 'left',
-          },
+          // {
+          //   to: '/contracts/guides',
+          //   label: 'User Guides',
+          //   position: 'left',
+          // },
           {
             to: '/contracts/overview',
             label: 'Contracts',
