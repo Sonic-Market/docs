@@ -4,3 +4,6 @@
 [submodule "library"]
 	path = library
 	url = https://github.com/clober-dex/library
+[submodule "arbitrum-options"]
+	path = arbitrum-options
+	url = https://github.com/clober-dex/arbitrum-options

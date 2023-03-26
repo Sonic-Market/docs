@@ -34,25 +34,31 @@ const copyFile = (src: string, dest: string) => {
   }
 }
 
+const repos = ['core', 'library', 'arbitrum-options']
+
 const main = async () => {
-  removeFileIfExists('docs/contracts/core')
-  removeFileIfExists('docs/contracts/library')
-  removeFileIfExists('core/docs')
-  removeFileIfExists('library/docs')
+  for (const repo of repos) {
+    removeFileIfExists(`docs/contracts/${repo}`)
+    removeFileIfExists(`${repo}/docs`)
+  }
 
   console.log('1. update git submodule')
   child_process.execSync('git submodule update --remote')
-  console.log('2. npm install in core modules')
-  runCommand('npm install --ignore-scripts', 'core')
-  console.log('3. npm install in library modules')
-  runCommand('npm install --ignore-scripts', 'library')
-  console.log('4. generate docs from core contracts')
-  runCommand('npx hardhat utils:gen-docs', 'core')
-  console.log('5. generate docs from library contracts')
-  runCommand('npx hardhat utils:gen-docs', 'library')
 
-  copyFile('core/docs', 'docs/contracts/core')
-  copyFile('library/docs', 'docs/contracts/library')
+  for (const repo of repos) {
+    console.log(`2. npm install in ${repo}`)
+    runCommand('npm install --ignore-scripts', repo)
+  }
+
+  for (const repo of repos) {
+    console.log(`3. generate docs from ${repo}`)
+    runCommand('npx hardhat utils:gen-docs', repo)
+  }
+
+  for (const repo of repos) {
+    console.log(`4. copy ${repo}/docs to docs/contracts/${repo}`)
+    copyFile(`${repo}/docs`, `docs/contracts/${repo}`)
+  }
 }
 
 main()
