@@ -93,7 +93,7 @@ const config = {
             className: 'persistent',
           },
           {
-            href: 'https://github.com/clober-dex/docs',
+            href: 'https://github.com/clober-dex',
             label: 'GitHub',
             position: 'right',
             className: 'persistent',
