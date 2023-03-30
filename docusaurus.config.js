@@ -141,8 +141,8 @@ const config = {
                 href: 'https://clober.io/',
               },
               {
-                label: 'Beta',
-                href: 'https://beta.clober.io/',
+                label: 'App',
+                href: 'https://app.clober.io/',
               },
             ],
           },

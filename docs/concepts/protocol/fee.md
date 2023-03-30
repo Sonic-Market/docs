@@ -16,13 +16,3 @@ Bob being the taker pays 10000 USDC to Alice and receives 9.996 ETH after paying
 Alice being the maker receives 0.002 ETH as the fee is negative and the remaining 0.002 ETH goes to the protocol.
 
 Negative trading fees are in place to incentive market makers to supply liquidity and facilitate more trades.
-
-The fee rates below are the initial setup for the beta launch and are subject to change.
-
-Markets for stable coin pairs (e.g. USDT-USDC):
-- taker: 0.006%
-- maker: -0.004%
-
-All other markets (e.g. ETH-USDC):
-- taker: 0.04%
-- maker: -0.02%
