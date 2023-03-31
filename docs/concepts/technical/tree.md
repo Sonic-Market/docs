@@ -30,7 +30,7 @@ Below is a diagram of how a segment tree looks before and after segmentation.
     <figcaption style={{fontSize:12}}>15 storage slots worth of data now fits in just 2.</figcaption>
 </figure>
 
-Every tree level needs to be updated when updating a segment tree. By segmenting the segment tree, we cut down the number of levels so that a tree with 32768 leaves would have 4 levels instead of 16. This translates to needing 4 `sstore`s rather than 16, a significant improvement. Also, the updates would write on the same memory slots more often, which means even lower gas fees on average. For example, the first four leaves will write to the same four storage slots on updates. This aspect of the Segmented Segment Tree lowers the average gas fees by a substantial amount making the performance of this tree even more impressive.
+Every tree level needs to be updated when updating a segment tree. By segmenting the segment tree, a tree with 32768 leaves would have 4 levels instead of 16. This translates to needing 4 `sstore`s rather than 16, a significant improvement. Also, the updates would write on the same memory slots more often, which means even lower gas fees on average. For example, the first four leaves will write to the same four storage slots on updates. This aspect of the Segmented Segment Tree lowers the average gas fees by a substantial amount making the performance of this tree even more impressive.
 
 | # of Segmented Segment Tree Levels | # of Segment Tree Levels | # of Leaf Nodes |
 | --- | --- | --- |

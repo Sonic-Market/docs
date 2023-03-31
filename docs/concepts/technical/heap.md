@@ -37,7 +37,7 @@ Similar to how the Segmented Segment Tree benefited immensely by packing several
 
 For any optimization to occur, we need to minimize the number of bits used to store the price point. We found that the price could be expressed in 16 bits without losing data by using an index instead of storing the actual price. Storing the actual price would be wasting precious bits to support integers that are not viable price points. For example, let’s say that the viable price points are 10010, 10020, 10030, and so on. The bits used to express 10010 in two’s complement can also be used to express 10011, 10012, and 10013, which is unnecessary as those prices are not supported. By saving 10010, 10020, and 10030 as 0, 1, and 2, we can save on wasted space and use fewer bits.
 
-Currently, there are two strategies for mapping a price to an index. These strategies are called price books; we have arithmetic and geometric price books. As the name suggests, the arithmetic price book uses an arithmetic progression, and the geometric price book uses a geometric progression. The initial term and common difference/ratio are set by the market creator.
+Currently, there are two strategies for mapping prices to an index. These strategies are called price books; we have arithmetic and geometric price books. As the name suggests, the arithmetic price book uses an arithmetic progression, and the geometric price book uses a geometric progression. The initial term and common difference/ratio are set by the market creator.
 
 <figure style={{textAlign:"center"}}>
     <img src={require("./images/pricebook.png").default} />
@@ -46,9 +46,9 @@ Currently, there are two strategies for mapping a price to an index. These strat
 
 ## Splitting the Bill (8 bits + 8 bits = 16 bits)
 
-### 
-
 The Octopus Heap consists of a **compressed heap** and a **leaf bitmap,** and instead of storing the whole 16-bit price index on the heap, it stores the first 8 bits on the compressed heap and the remaining 8 bits on the leaf bitmap.
+
+### Compressed Heap
 
 A **compressed heap** is a heap where several nodes are stored on a single storage slot, but unlike the Segmented Segment Tree, we cannot omit any nodes in this process, meaning the parent nodes must be saved as well. By only storing 8-bit values on the heap, 32 nodes can be packed into a single storage slot.
 
@@ -56,7 +56,9 @@ As the first 8 bits of our price index have 256 different values, a heap with ni
 
 The result is a heap that is nine levels high but only requires 2 `sstore`s at most for popping or pushing, which is incredibly gas efficient. Even though operations regarding the heap are very cheap, they will rarely be used and, in most cases, replaced by an even cheaper operation on the leaf bitmap.
 
-The **leaf bitmap** stores the entire price index, using the first 8 bits as the key and the last 8 bits as a position on a storage slot using `mapping(uint8 => uint256)`. When saving the last 8 bits of the price index, we fetch the storage slot mapped to the first 8 bits and mark a bit on the 256-bit storage slot to represent that it exists. For example, when saving 0b00000011, we would mark the fourth bit from the least significant bit on a `uint256`, as shown below. (Coincidentally, 8 bits have exactly 256 integer values.)
+### Leaf Bitmap
+
+The **leaf bitmap** stores the entire price index, using the first 8 bits as the key and the last 8 bits as a position on a storage slot using `mapping(uint8 => uint256)`. When saving the last 8 bits of the price index, we fetch the storage slot mapped to the first 8 bits and mark a bit on the 256-bit storage slot to represent that it exists. For example, when saving 0b00000011, we would mark the fourth bit on a `uint256`, as shown below. (Coincidentally, 8 bits have exactly 256 integer values.)
 
 ```
 8 bit:

@@ -12,5 +12,5 @@ When implementing Clober, we had to solve two significant challenges regarding a
 1. Iterating over orders to settle.
 2. Iterating over price points to fill a large market order.
 
-Through the thoughtful use of traditional data structures that we modified and rewrote from scratch to optimize gas fees, we overcame these two bottlenecks and successfully implemented a gas-feasible order book.
+Through the thoughtful use of data structures that we modified and rewrote from scratch to optimize gas fees, we overcame these two bottlenecks and successfully implemented a gas-feasible order book.
 Our rigorous optimizations, for the first time, allow an EVM order book with gas fees on par with what the state-of-the-art AMMs have to offer.
