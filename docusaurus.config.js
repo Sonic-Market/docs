@@ -87,6 +87,11 @@ const config = {
             position: 'left',
           },
           {
+            to: '/api/overview',
+            label: 'API',
+            position: 'left',
+          },
+          {
             label: 'Bug Report',
             to: 'https://forms.gle/a5e38suSANoxQhPz7',
             position: 'right',
@@ -191,6 +196,17 @@ const config = {
         id: 'concepts',
         path: 'docs/concepts',
         routeBasePath: 'concepts/',
+        remarkPlugins: [math],
+        rehypePlugins: [katex],
+        includeCurrentVersion: true,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'api',
+        path: 'docs/api',
+        routeBasePath: 'api/',
         remarkPlugins: [math],
         rehypePlugins: [katex],
         includeCurrentVersion: true,
