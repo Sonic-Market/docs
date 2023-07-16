@@ -17,15 +17,16 @@ Find the best swap path for a given token pair in Polygon zkEVM Mainnet.
 
 #### **Parameters**
 
-| Name        | Type     | Description                                                                                                                                            |
-|-------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `token_in`  | `string` | The address of the token to swap from.                                                                                                                 |
-| `token_out` | `string` | The address of the token to swap to.                                                                                                                   |
-| `amount_in` | `number` | The amount of the input token to swap.                                                                                                                 |
-| `parts`     | `number` | (Optional) The number of parts to split the swap into. Maximum: `20`. We strongly recommend using `1` in Polygon zkEVM. The default value is `1`.      |
-| `max_hops` | `number` | (Optional) The maximum number of hops to use in the path. Maximum: `10`. We strongly recommend using `5` in Polygon zkEVM. The default value is `5`.   |
-|`fastest_mode`| `boolean` | (Optional) Whether to use the fastest mode. We strongly recommend using `false` in Polygon zkEVM. The default value is `false`.                        | 
-| `gas_effective_mode` | `boolean` | (Optional) Whether to use the gas-efficient mode. If true, the route takes into account gas fees when providing the optimal path. The default value is `false`. |
+| Name               | Type     | Description                                                                                                                                            |
+|--------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `tokenIn`          | `string` | The address of the token to swap from.                                                                                                                 |
+| `tokenOut`         | `string` | The address of the token to swap to.                                                                                                                   |
+| `amountIn`         | `number` | The amount of the input token to swap.                                                                                                                 |
+| `parts`            | `number` | (Optional) The number of parts to split the swap into. Maximum: `20`. We strongly recommend using `1` in Polygon zkEVM. The default value is `1`.      |
+| `maxHops`          | `number` | (Optional) The maximum number of hops to use in the path. Maximum: `10`. We strongly recommend using `5` in Polygon zkEVM. The default value is `5`.   |
+| `fastestMode`      | `boolean` | (Optional) Whether to use the fastest mode. We strongly recommend using `false` in Polygon zkEVM. The default value is `false`.                        | 
+| `gasEffectiveMode` | `boolean` | (Optional) Whether to use the gas-efficient mode. If true, the route takes into account gas fees when providing the optimal path. The default value is `false`. |
+| `dexCompareMode` | `boolean` | (Optional) Whether to use the dex-compare mode. If true, we will compare the output amount of each dex. The default value is `false`. |
 
 **Example Request:**
 
