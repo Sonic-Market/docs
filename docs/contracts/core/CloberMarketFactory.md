@@ -92,33 +92,75 @@ Emitted when the host address has changed.
 | previousHost | address | The address of the previous host. |
 | newHost | address | The address of a new host. |
 
-### volatileMarketDeployer
+### deployedGeometricPriceBook
 
 ```solidity
-function volatileMarketDeployer() external view returns (address)
+function deployedGeometricPriceBook(uint128 a, uint128 r) external view returns (address)
 ```
 
-Returns the address of the VolatileMarketDeployer.
+Returns the address of the deployed GeometricPriceBook.
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | address | The address of the VolatileMarketDeployer. |
+| [0] | address | The address of the GeometricPriceBook. |
 
-### stableMarketDeployer
+### deployedArithmeticPriceBook
 
 ```solidity
-function stableMarketDeployer() external view returns (address)
+function deployedArithmeticPriceBook(uint128 a, uint128 d) external view returns (address)
 ```
 
-Returns the address of the StableMarketDeployer.
+Returns the address of the deployed GeometricPriceBook.
 
 #### Return Values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| [0] | address | The address of the StableMarketDeployer. |
+| [0] | address | The address of the GeometricPriceBook. |
+
+### marketDeployer
+
+```solidity
+function marketDeployer() external view returns (address)
+```
+
+Returns the address of the MarketDeployer.
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the MarketDeployer. |
+
+### priceBookDeployer
+
+```solidity
+function priceBookDeployer() external view returns (address)
+```
+
+Returns the address of the priceBookDeployer.
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the priceBookDeployer. |
+
+### orderTokenDeployer
+
+```solidity
+function orderTokenDeployer() external view returns (address)
+```
+
+Returns the address of the orderTokenDeployer.
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the orderTokenDeployer. |
 
 ### canceler
 
@@ -358,20 +400,6 @@ _Only the future market host can call this function._
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | market | address | The market address for which the host will be changed. |
-
-### computeTokenAddress
-
-```solidity
-function computeTokenAddress(uint256 marketNonce) external view returns (address)
-```
-
-Computes the OrderNFT contract address.
-
-#### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| marketNonce | uint256 | The nonce to compute the OrderNFT contract address via CREATE2. |
 
 ### MarketType
 

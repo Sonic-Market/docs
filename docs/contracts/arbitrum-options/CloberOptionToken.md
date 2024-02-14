@@ -198,7 +198,7 @@ Returns the exercise fee balance for the option.
 ### write
 
 ```solidity
-function write(uint256 amount) external
+function write(uint256 optionAmount) external
 ```
 
 Allows an address to write options.
@@ -207,12 +207,12 @@ Allows an address to write options.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| amount | uint256 | The amount of options to write. |
+| optionAmount | uint256 | The amount of options to write. |
 
 ### cancel
 
 ```solidity
-function cancel(uint256 amount) external
+function cancel(uint256 optionAmount) external
 ```
 
 Allows an option writer to cancel options before expiration.
@@ -221,12 +221,12 @@ Allows an option writer to cancel options before expiration.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| amount | uint256 | The amount of options to cancel. |
+| optionAmount | uint256 | The amount of options to cancel. |
 
 ### exercise
 
 ```solidity
-function exercise(uint256 amount) external
+function exercise(uint256 optionAmount) external
 ```
 
 Allows an option holder to exercise options before expiration.
@@ -235,7 +235,7 @@ Allows an option holder to exercise options before expiration.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| amount | uint256 | The amount of options to exercise. |
+| optionAmount | uint256 | The amount of options to exercise. |
 
 ### claim
 

@@ -16,6 +16,36 @@ struct LimitOrderParams {
 }
 ```
 
+### GeneralLimitOrderParams
+
+```solidity
+struct GeneralLimitOrderParams {
+  struct CloberRouter.LimitOrderParams params;
+  bool isBid;
+}
+```
+
+### limitOrder
+
+```solidity
+function limitOrder(struct CloberRouter.GeneralLimitOrderParams[] limitOrderParamsList, struct CloberRouter.ClaimOrderParams[] claimParamsList) external payable returns (uint256[] orderIds)
+```
+
+Places limit orders.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| limitOrderParamsList | struct CloberRouter.GeneralLimitOrderParams[] | The limit order parameters list. |
+| claimParamsList | struct CloberRouter.ClaimOrderParams[] | Array of ClaimOrderParams: The list of orders to be claimed. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| orderIds | uint256[] | The order indices. If an order is not made `type(uint256).max` is returned instead. |
+
 ### limitBid
 
 ```solidity
@@ -194,4 +224,46 @@ Submits a market ask order to the order book after claiming a list of orders.
 | ---- | ---- | ----------- |
 | claimParamsList | struct CloberRouter.ClaimOrderParams[] | Array of ClaimOrderParams: The list of orders to be claimed. |
 | marketOrderParams | struct CloberRouter.MarketOrderParams | MarketOrderParams: The parameters for the market order. |
+
+### registerMarkets
+
+```solidity
+function registerMarkets(address[] markets) external
+```
+
+Registers markets to be accepted by the router.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| markets | address[] | Markets to be registered. |
+
+### unregisterMarkets
+
+```solidity
+function unregisterMarkets(address[] markets) external
+```
+
+Unregisters markets denying their use by the router.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| markets | address[] | Markets to be unregistered. |
+
+### isRegisteredMarket
+
+```solidity
+function isRegisteredMarket(address market) external view returns (bool)
+```
+
+Checks if the market is registered.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| market | address | The market to be checked for registration status. |
 

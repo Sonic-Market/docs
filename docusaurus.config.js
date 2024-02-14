@@ -98,6 +98,12 @@ const config = {
             className: 'persistent',
           },
           {
+            label: 'Audit Report',
+            to: 'https://github.com/clober-dex/core/blob/main/audits/SpearbitDAO2023Feb.pdf',
+            position: 'right',
+            className: 'persistent',
+          },
+          {
             href: 'https://github.com/clober-dex',
             label: 'GitHub',
             position: 'right',
@@ -114,6 +120,10 @@ const config = {
               {
                 label: 'Bug Report',
                 href: 'https://forms.gle/a5e38suSANoxQhPz7',
+              },
+              {
+                label: 'Audit Report',
+                href: 'https://github.com/clober-dex/core/blob/main/audits/SpearbitDAO2023Feb.pdf',
               },
               {
                 label: '#dev-chat',

@@ -105,6 +105,20 @@ struct Order {
 }
 ```
 
+### BlockTradeLog
+
+```solidity
+struct BlockTradeLog {
+  uint64 blockTime;
+  uint64 askVolume;
+  uint64 bidVolume;
+  uint16 open;
+  uint16 high;
+  uint16 low;
+  uint16 close;
+}
+```
+
 ### limitOrder
 
 ```solidity
@@ -201,6 +215,29 @@ _The length of orderKeys must be controlled by the caller to avoid block gas lim
 | ---- | ---- | ----------- |
 | claimer | address | The address to receive the claim bounties. |
 | orderKeys | struct OrderKey[] | The order keys of the orders to claim. |
+
+### getClaimable
+
+```solidity
+function getClaimable(struct OrderKey orderKey) external view returns (uint64 claimableRawAmount, uint256 claimableAmount, uint256 feeAmount, uint256 rebateAmount)
+```
+
+Get the claimable proceeds of an order.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| orderKey | struct OrderKey | The order key of the order. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| claimableRawAmount | uint64 | The claimable raw amount. |
+| claimableAmount | uint256 | The claimable amount after fees. |
+| feeAmount | uint256 | The maker fee to be paid on claim. |
+| rebateAmount | uint256 | The rebate to be received on claim. |
 
 ### flash
 
@@ -443,6 +480,54 @@ Returns the lowest ask price index or the highest bid price index.
 | ---- | ---- | ----------- |
 | [0] | uint16 | The current price index. If the order book is empty, it will revert. |
 
+### blockTradeLogIndex
+
+```solidity
+function blockTradeLogIndex() external view returns (uint16)
+```
+
+Returns the current block trade log index.
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint16 | The current block trade log index. |
+
+### blockTradeLogs
+
+```solidity
+function blockTradeLogs(uint16 index) external view returns (struct CloberOrderBook.BlockTradeLog)
+```
+
+Returns the block trade log for a certain index.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| index | uint16 | The block trade log index used to query the block trade log. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | struct CloberOrderBook.BlockTradeLog | The queried block trade log. |
+
+### priceBook
+
+```solidity
+function priceBook() external view returns (address)
+```
+
+Returns the address of the price book.
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | address | The address of the price book. |
+
 ### rawToBase
 
 ```solidity
@@ -559,4 +644,46 @@ _Only the OrderToken contract can call this function._
 | ---- | ---- | ----------- |
 | orderKey | struct OrderKey | The order key of the order. |
 | newOwner | address | The new owner address. |
+
+### indexToPrice
+
+```solidity
+function indexToPrice(uint16 priceIndex) external view returns (uint256)
+```
+
+Converts the price index into the actual price.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| priceIndex | uint16 | The price book index. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | uint256 | price The actual price. |
+
+### priceToIndex
+
+```solidity
+function priceToIndex(uint256 price, bool roundingUp) external view returns (uint16 index, uint256 correctedPrice)
+```
+
+Returns the price book index closest to the provided price.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| price | uint256 | Provided price. |
+| roundingUp | bool | Determines whether to round up or down. |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| index | uint16 | The price book index. |
+| correctedPrice | uint256 | The actual price for the price book index. |
 

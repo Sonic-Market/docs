@@ -14,6 +14,20 @@ Returns the base URI for the metadata of this NFT collection.
 | ---- | ---- | ----------- |
 | [0] | string | The base URI for the metadata of this NFT collection. |
 
+### contractURI
+
+```solidity
+function contractURI() external view returns (string)
+```
+
+Returns the contract URI for the metadata of this NFT collection.
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | string | The contract URI for the metadata of this NFT collection. |
+
 ### market
 
 ```solidity
@@ -84,6 +98,20 @@ Changes the base URI for the metadata of this NFT collection.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | newBaseURI | string | The new base URI for the metadata of this NFT collection. |
+
+### changeContractURI
+
+```solidity
+function changeContractURI(string newContractURI) external
+```
+
+Changes the contract URI for the metadata of this NFT collection.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newContractURI | string | The new contract URI for the metadata of this NFT collection. |
 
 ### decodeId
 
