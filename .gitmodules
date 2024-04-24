@@ -1,9 +1,3 @@
-[submodule "core"]
-	path = core
-	url = https://github.com/clober-dex/core
-[submodule "library"]
-	path = library
-	url = https://github.com/clober-dex/library
-[submodule "arbitrum-options"]
-	path = arbitrum-options
-	url = https://github.com/clober-dex/arbitrum-options
+[submodule "v2-core"]
+	path = v2-core
+	url = https://github.com/clober-dex/v2-core
