@@ -24,9 +24,9 @@ const config = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          id: 'contracts',
-          path: 'docs/contracts',
-          routeBasePath: 'contracts/',
+          id: 'developers',
+          path: 'docs/developers',
+          routeBasePath: 'developers/',
           remarkPlugins: [math],
           rehypePlugins: [katex],
           editUrl: 'https://github.com/clober-dex/docs/tree/main/',
@@ -77,8 +77,8 @@ const config = {
             position: 'left',
           },
           {
-            to: '/contracts/overview',
-            label: 'Contracts',
+            to: '/developers/overview',
+            label: 'Developers',
             position: 'left',
           },
           {
