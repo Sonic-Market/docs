@@ -15,7 +15,7 @@ Here is a list of repositories and resources for developers to get started with 
 
 ## SDKs
 - [Clober V2 SDK](https://github.com/clober-dex/v2-sdk)
-- [Clober V2 SDK Docs](https://v2-sdk.vercel.app/)
+- [Clober V2 SDK Docs](https://v2-sdk.clober.io/)
 
 ## Frontend
 - [Clober V2 Frontend](https://github.com/clober-dex/v2.clober.io)
