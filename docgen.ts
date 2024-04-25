@@ -34,7 +34,7 @@ const copyFile = (src: string, dest: string) => {
   }
 }
 
-const repos = ['core', 'library', 'arbitrum-options']
+const repos = ['v2-core']
 
 const main = async () => {
   for (const repo of repos) {
@@ -47,7 +47,7 @@ const main = async () => {
 
   for (const repo of repos) {
     console.log(`2. npm install in ${repo}`)
-    runCommand('npm install --ignore-scripts', repo)
+    runCommand('forge install && npm install --ignore-scripts', repo)
   }
 
   for (const repo of repos) {

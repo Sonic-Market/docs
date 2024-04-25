@@ -76,19 +76,9 @@ const config = {
             label: 'Concepts',
             position: 'left',
           },
-          // {
-          //   to: '/contracts/guides',
-          //   label: 'User Guides',
-          //   position: 'left',
-          // },
           {
             to: '/contracts/overview',
             label: 'Contracts',
-            position: 'left',
-          },
-          {
-            to: '/api/overview',
-            label: 'API',
             position: 'left',
           },
           {
@@ -206,17 +196,6 @@ const config = {
         id: 'concepts',
         path: 'docs/concepts',
         routeBasePath: 'concepts/',
-        remarkPlugins: [math],
-        rehypePlugins: [katex],
-        includeCurrentVersion: true,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'api',
-        path: 'docs/api',
-        routeBasePath: 'api/',
         remarkPlugins: [math],
         rehypePlugins: [katex],
         includeCurrentVersion: true,
