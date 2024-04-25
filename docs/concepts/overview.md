@@ -1,6 +1,6 @@
 ---
 id: overview
-title: Introduction
+title: Overview
 sidebar_position: 1
 ---
 

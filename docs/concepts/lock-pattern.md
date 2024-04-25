@@ -1,7 +1,7 @@
 ---
 id: lock-pattern
 title: Lock Pattern
-sidebar_position: 5
+sidebar_position: 9
 ---
 
 Clober adopts the Lock Mechanism introduced in UniSwap v4 to ensure transactional integrity and efficiency. This mechanism offers two key advantages: atomic operation execution and efficient state management, which maintain the system's consistency and accuracy.
