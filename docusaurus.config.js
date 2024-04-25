@@ -89,7 +89,7 @@ const config = {
           },
           {
             label: 'Audit Report',
-            to: 'https://github.com/clober-dex/core/blob/main/audits/SpearbitDAO2023Feb.pdf',
+            to: '/assets/files/Clober_V2-fc545ee25635e5ef6d3a73c0991461eb.pdf',
             position: 'right',
             className: 'persistent',
           },
@@ -125,17 +125,9 @@ const config = {
             title: 'Github',
             items: [
               {
-                label: 'clober-core',
-                href: 'https://github.com/clober-dex/core',
-              },
-              {
-                label: 'clober-library',
-                href: 'https://github.com/clober-dex/library',
-              },
-              {
-                label: 'clober-docs',
-                href: 'https://github.com/clober-dex/docs',
-              },
+                label: '@clober-dex',
+                href: 'https://github.com/clober-dex',
+              }
             ],
           },
           {

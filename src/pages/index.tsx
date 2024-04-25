@@ -24,10 +24,10 @@ export const actions = [
     text: `Learn about the core concepts of the Clober, Segmented Segment Tree, Octopus Heap and more.`,
   },
   {
-    title: 'The Clober smart contracts',
+    title: 'Developers',
     icon: BookOpen,
-    to: '/contracts/overview',
-    text: `Learn about the architecture of the Clober smart contracts through guided examples.`,
+    to: '/developers/overview',
+    text: `Start building with Clober, integrate with our SDK, or contribute to our smart contracts.`,
   },
   {
     title: 'Trade Now!',
@@ -39,18 +39,23 @@ export const actions = [
 
 export const developerLinks = [
   {
-    title: 'clober-core',
-    href: 'https://github.com/clober-dex/core',
+    title: 'v2-core',
+    href: 'https://github.com/clober-dex/v2-core',
     icon: GitHub,
   },
   {
-    title: 'clober-library',
-    href: 'https://github.com/clober-dex/library',
+    title: 'v2-sdk',
+    href: 'https://github.com/clober-dex/v2-sdk',
     icon: GitHub,
   },
   {
-    title: 'clober-docs',
-    href: 'https://github.com/clober-dex/docs',
+    title: 'v2.clober.io',
+    href: 'https://github.com/clober-dex/v2.clober.io',
+    icon: GitHub,
+  },
+  {
+    title: 'v2-core-subgraph',
+    href: 'https://github.com/clober-dex/v2-core-subgraph',
     icon: GitHub,
   },
 ]
