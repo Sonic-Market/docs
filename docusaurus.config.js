@@ -89,7 +89,7 @@ const config = {
           },
           {
             label: 'Audit Report',
-            to: '/assets/files/Clober_V2-fc545ee25635e5ef6d3a73c0991461eb.pdf',
+            to: 'https://docs.clober.io/assets/files/Clober_V2-fc545ee25635e5ef6d3a73c0991461eb.pdf',
             position: 'right',
             className: 'persistent',
           },
