@@ -239,27 +239,6 @@ Returns the default provider
 | ---- | ---- | ----------- |
 | [0] | address | The default provider |
 
-### currencyDelta
-
-```solidity
-function currencyDelta(address locker, Currency currency) external view returns (int256)
-```
-
-Calculates the currency balance changes for a given locker
-
-#### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| locker | address | The address of the locker |
-| currency | Currency | The currency in question |
-
-#### Return Values
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | int256 | The net change in currency balance |
-
 ### reservesOf
 
 ```solidity
@@ -336,6 +315,27 @@ Calculates the amount owed to a provider in a given currency
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | [0] | uint256 | The owed amount |
+
+### getCurrencyDelta
+
+```solidity
+function getCurrencyDelta(address locker, Currency currency) external view returns (int256)
+```
+
+Calculates the currency balance changes for a given locker
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| locker | address | The address of the locker |
+| currency | Currency | The currency in question |
+
+#### Return Values
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| [0] | int256 | The net change in currency balance |
 
 ### getBookKey
 

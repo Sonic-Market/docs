@@ -38,7 +38,7 @@ const repos = ['v2-core']
 
 const main = async () => {
   for (const repo of repos) {
-    removeFileIfExists(`docs/contracts/${repo}`)
+    removeFileIfExists(`docs/developers/${repo}`)
     removeFileIfExists(`${repo}/docs`)
   }
 
@@ -56,8 +56,8 @@ const main = async () => {
   }
 
   for (const repo of repos) {
-    console.log(`4. copy ${repo}/docs to docs/contracts/${repo}`)
-    copyFile(`${repo}/docs`, `docs/contracts/${repo}`)
+    console.log(`4. copy ${repo}/docs to docs/developers/${repo}`)
+    copyFile(`${repo}/docs`, `docs/developers/${repo}`)
   }
 }
 
