@@ -148,7 +148,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.com/invite/clober',
+                href: 'https://discord.gg/clober-coupon-finance',
               },
               {
                 label: 'Medium',
