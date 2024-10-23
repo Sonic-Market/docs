@@ -72,7 +72,7 @@ const config = {
         },
         items: [
           {
-            to: '/concepts/overview',
+            to: '/concepts/introduction',
             label: 'Concepts',
             position: 'left',
           },
