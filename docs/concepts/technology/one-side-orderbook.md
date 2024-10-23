@@ -1,7 +1,7 @@
 ---
 id: one-side-orderbook
 title: One-sided Orderbook
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 Unlike traditional CLOBs, where orderbooks contain both bid-side and ask-side, Clober’s orderbooks are one-sided, containing only the bid-side. This design was chosen considering the symmetric nature of orderbooks. This means that if there’s one book for the bid side, another bid-side book with the quote and base reversed can be considered its ask-side book. For example, the bid book for the USDC-ETH pair can be considered an ask-side book for the ETH-USDC market.

@@ -1,7 +1,7 @@
 ---
 id: book-key
 title: Book Key
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 ## Understanding the `BookKey`

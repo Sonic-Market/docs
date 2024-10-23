@@ -1,7 +1,7 @@
 ---
 id: order-nft
 title: Order NFT
-sidebar_position: 10
+sidebar_position: 9
 ---
 
 When a maker order is placed, a corresponding NFT (ERC-721) is minted.

@@ -1,7 +1,7 @@
 ---
 id: fee-policy
 title: Fee Policy
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 There are two attributes in FeePolicy
