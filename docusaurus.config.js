@@ -83,7 +83,7 @@ const config = {
           },
           {
             label: 'Brand Kit',
-            to: 'https://clober.notion.site/Brand-Kit-12d394942ff8807aa484f120ae6dd486',
+            to: 'https://clober.notion.site/Brand-Kit-12d394942ff88016ba6cf048298a3e6e',
             position: 'right',
             className: 'persistent',
           },
@@ -109,7 +109,7 @@ const config = {
             items: [
               {
                 label: 'Brand Kit',
-                href: 'https://clober.notion.site/Brand-Kit-12d394942ff8807aa484f120ae6dd486',
+                href: 'https://clober.notion.site/Brand-Kit-12d394942ff88016ba6cf048298a3e6e',
               },
               {
                 label: 'Audit Report',
