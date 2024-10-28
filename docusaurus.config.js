@@ -82,8 +82,8 @@ const config = {
             position: 'left',
           },
           {
-            label: 'Bug Report',
-            to: 'https://forms.gle/a5e38suSANoxQhPz7',
+            label: 'Brand Kit',
+            to: 'https://clober.notion.site/Brand-Kit-12d394942ff8807aa484f120ae6dd486',
             position: 'right',
             className: 'persistent',
           },
@@ -108,8 +108,8 @@ const config = {
             title: 'Developers',
             items: [
               {
-                label: 'Bug Report',
-                href: 'https://forms.gle/a5e38suSANoxQhPz7',
+                label: 'Brand Kit',
+                href: 'https://clober.notion.site/Brand-Kit-12d394942ff8807aa484f120ae6dd486',
               },
               {
                 label: 'Audit Report',
