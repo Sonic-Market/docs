@@ -6,9 +6,9 @@ const katex = require('rehype-katex')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Clober',
+  title: 'Sonic Market',
   tagline: 'Documentation and Guides',
-  url: 'https://docs.clober.io',
+  url: 'https://docs.sonic.market',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'ignore',
@@ -29,7 +29,7 @@ const config = {
           routeBasePath: 'developers/',
           remarkPlugins: [math],
           rehypePlugins: [katex],
-          editUrl: 'https://github.com/clober-dex/docs/tree/main/',
+          editUrl: 'https://github.com/Sonic-Market/docs/tree/main/',
           includeCurrentVersion: true,
         },
         theme: {
@@ -59,20 +59,15 @@ const config = {
       prism: {
         additionalLanguages: ['solidity'],
       },
-      algolia: {
-        apiKey: '403cfcb838d3306c2cd5ebc1f06f5ac9',
-        indexName: 'docs',
-        appId: 'N3RLNMQ10C',
-      },
       navbar: {
-        title: 'Clober Docs',
+        title: 'Sonic Market Docs',
         logo: {
-          alt: 'Clober',
-          src: 'img/logo.svg',
+          alt: 'Sonic Market',
+          src: 'img/logo.png',
         },
         items: [
           {
-            to: '/concepts/introduction',
+            to: '/concepts/overview',
             label: 'Concepts',
             position: 'left',
           },
@@ -81,20 +76,20 @@ const config = {
             label: 'Developers',
             position: 'left',
           },
+          // {
+          //   label: 'Brand Kit',
+          //   to: 'https://sonic.market.notion.site/Brand-Kit-12d394942ff88016ba6cf048298a3e6e',
+          //   position: 'right',
+          //   className: 'persistent',
+          // },
+          // {
+          //   label: 'Audit Report',
+          //   to: 'https://github.com/sonic.market/v2-core/blob/master/audits/sonic.market.pdf',
+          //   position: 'right',
+          //   className: 'persistent',
+          // },
           {
-            label: 'Brand Kit',
-            to: 'https://clober.notion.site/Brand-Kit-12d394942ff88016ba6cf048298a3e6e',
-            position: 'right',
-            className: 'persistent',
-          },
-          {
-            label: 'Audit Report',
-            to: 'https://github.com/clober-dex/v2-core/blob/master/audits/Clober_V2.pdf',
-            position: 'right',
-            className: 'persistent',
-          },
-          {
-            href: 'https://github.com/clober-dex',
+            href: 'https://github.com/Sonic-Market',
             label: 'GitHub',
             position: 'right',
             className: 'persistent',
@@ -107,26 +102,26 @@ const config = {
           {
             title: 'Developers',
             items: [
-              {
-                label: 'Brand Kit',
-                href: 'https://clober.notion.site/Brand-Kit-12d394942ff88016ba6cf048298a3e6e',
-              },
-              {
-                label: 'Audit Report',
-                href: 'https://github.com/clober-dex/v2-core/blob/master/audits/Clober_V2.pdf',
-              },
-              {
-                label: '#dev-chat',
-                href: 'http://clober.io/',
-              },
+              // {
+              //   label: 'Brand Kit',
+              //   href: 'https://sonic.market.notion.site/Brand-Kit-12d394942ff88016ba6cf048298a3e6e',
+              // },
+              // {
+              //   label: 'Audit Report',
+              //   href: 'https://github.com/sonic.market-dex/v2-core/blob/master/audits/sonic.market.pdf',
+              // },
+              // {
+              //   label: '#dev-chat',
+              //   href: 'http://sonic.market.io/',
+              // },
             ],
           },
           {
             title: 'Github',
             items: [
               {
-                label: '@clober-dex',
-                href: 'https://github.com/clober-dex',
+                label: '@Sonic-Market',
+                href: 'https://github.com/Sonic-Market',
               }
             ],
           },
@@ -135,11 +130,7 @@ const config = {
             items: [
               {
                 label: 'Home',
-                href: 'https://clober.io/',
-              },
-              {
-                label: 'App',
-                href: 'https://app.clober.io/',
+                href: 'https://sonic.market/',
               },
             ],
           },
@@ -148,20 +139,12 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.gg/clober-dex',
-              },
-              {
-                label: 'Medium',
-                href: 'https://medium.com/clober',
+                href: 'https://discord.gg/sonic-market',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/CloberDEX',
-              },
-              {
-                label: 'Telegram',
-                href: 'https://t.me/CloberDEX',
-              },
+                href: 'https://x.com/sonic_market',
+              }
             ],
           },
         ],
@@ -169,11 +152,11 @@ const config = {
       },
       colorMode: {
         // "light" | "dark"
-        defaultMode: 'dark',
+        defaultMode: 'light',
 
         // Hides the switch in the navbar
         // Useful if you want to support a single color mode
-        disableSwitch: false,
+        disableSwitch: true,
 
         // Should we use the prefers-color-scheme media-query,
         // using user system preferences, instead of the hardcoded defaultMode

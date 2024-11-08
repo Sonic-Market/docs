@@ -4,7 +4,7 @@ title: Book Manager
 sidebar_position: 2
 ---
 
-Clober’s orderbook contract adopts a monolithic design, where a single contract called BookManager contains all the book instances. As a result, all orders, reserves, and states are managed within a single contract.
+Sonic Market’s orderbook contract adopts a monolithic design, where a single contract called BookManager contains all the book instances. As a result, all orders, reserves, and states are managed within a single contract.
 
 The major interfaces of the BookManager are as follows:
 

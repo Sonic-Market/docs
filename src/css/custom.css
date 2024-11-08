@@ -73,7 +73,7 @@ html[data-theme='light'] {
 
   background-position: 0px -30vh;
   background-repeat: no-repeat;
-  background-image: radial-gradient(50% 50% at 50% 50%, rgba(102, 84, 254, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(0, 180, 180, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
 
   /* any other colors you wish to overwrite */
 }

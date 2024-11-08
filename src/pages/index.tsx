@@ -14,51 +14,29 @@ import {
   MessageCircle,
   ArrowRightCircle,
 } from 'react-feather'
-import SearchBarWithAnalytics from '@site/src/theme/SearchBar'
 
 export const actions = [
   {
     title: 'Technical Paper',
     icon: Info,
     to: '/concepts/overview',
-    text: `Learn about the core concepts of the Clober, Segmented Segment Tree, Octopus Heap and more.`,
+    text: `Learn about the core concepts of the Sonic Market, Segmented Segment Tree, Octopus Heap and more.`,
   },
   {
     title: 'Developers',
     icon: BookOpen,
     to: '/developers/overview',
-    text: `Start building with Clober, integrate with our SDK, or contribute to our smart contracts.`,
+    text: `Start building with Sonic Market, integrate with our SDK, or contribute to our smart contracts.`,
   },
   {
     title: 'Trade Now!',
     icon: ArrowRightCircle,
-    to: 'https://app.clober.io',
-    text: `Place limit orders on our fully on-chain order book. Have CEX on DEX!`,
+    to: 'https://sonic.market',
+    text: `Best Dex, Sonic Market.`,
   },
 ]
 
-export const developerLinks = [
-  {
-    title: 'v2-core',
-    href: 'https://github.com/clober-dex/v2-core',
-    icon: GitHub,
-  },
-  {
-    title: 'v2-sdk',
-    href: 'https://github.com/clober-dex/v2-sdk',
-    icon: GitHub,
-  },
-  {
-    title: 'v2.clober.io',
-    href: 'https://github.com/clober-dex/v2.clober.io',
-    icon: GitHub,
-  },
-  {
-    title: 'v2-core-subgraph',
-    href: 'https://github.com/clober-dex/v2-core-subgraph',
-    icon: GitHub,
-  },
-]
+export const developerLinks = []
 
 export const dAppGuides = [
   {
@@ -265,7 +243,7 @@ const StyledTitleImage = styled(StyledImage)`
   object-fit: cover;
   z-index: -1;
   position: absolute;
-  opacity: 0.2;
+  opacity: 0.4;
   overflow: hidden;
   mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
 `
@@ -284,8 +262,8 @@ const StyledIcon = styled.div`
 export default function Home() {
   return (
     <Layout
-      title={`Clober Docs`}
-      description="Technical Documentation For The Clober Protocol"
+      title={`Sonic Market Docs`}
+      description="Technical Documentation For The Sonic Market Protocol"
     >
       <Container>
         <DocsHeader>
@@ -298,10 +276,10 @@ export default function Home() {
               alignItems: 'center',
             }}
           >
-            <h1 style={{ fontWeight: 600 }}> Welcome to Clober Docs</h1>
-            <HideMedium>
-              <SearchBarWithAnalytics />
-            </HideMedium>
+            <h1 style={{ fontWeight: 600 }}> Welcome to Sonic Market Docs</h1>
+            {/*<HideMedium>*/}
+            {/*  <SearchBarWithAnalytics />*/}
+            {/*</HideMedium>*/}
           </div>
           <Row>
             {actions.map((action) => (
@@ -333,7 +311,7 @@ export default function Home() {
         <StyledTitleImage
           sources={{
             light: useBaseUrl('/img/grow.png'),
-            dark: useBaseUrl('/img/grow2.png'),
+            dark: useBaseUrl('/img/grow.png'),
           }}
         />
         <hr />
@@ -351,7 +329,7 @@ export default function Home() {
             }}
           />
           <div>
-            <h2>Developer Links</h2>
+            {developerLinks.length > 0 && <h2>Developer Guides</h2>}
             {developerLinks.map((action) => (
               <Link key={action.href} to={action.href}>
                 <Card key={action.href} style={{ marginBottom: '0.5rem' }}>

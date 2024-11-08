@@ -35,6 +35,6 @@ Finds the index of the least significant bit.
 ### mostSignificantBit
 
 ```solidity
-function mostSignificantBit(uint256 x) internal pure returns (uint8)
+function mostSignificantBit(uint256 x) internal pure returns (uint8 msb)
 ```
 
