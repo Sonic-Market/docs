@@ -76,12 +76,12 @@ const config = {
             label: 'Developers',
             position: 'left',
           },
-          // {
-          //   label: 'Brand Kit',
-          //   to: 'https://sonic.market.notion.site/Brand-Kit-12d394942ff88016ba6cf048298a3e6e',
-          //   position: 'right',
-          //   className: 'persistent',
-          // },
+          {
+            label: 'Brand Kit',
+            to: 'https://sonic-market.notion.site/Brand-Kit-15e394942ff880d09c65d8342ed2d54e',
+            position: 'right',
+            className: 'persistent',
+          },
           // {
           //   label: 'Audit Report',
           //   to: 'https://github.com/sonic.market/v2-core/blob/master/audits/sonic.market.pdf',
@@ -102,10 +102,10 @@ const config = {
           {
             title: 'Developers',
             items: [
-              // {
-              //   label: 'Brand Kit',
-              //   href: 'https://sonic.market.notion.site/Brand-Kit-12d394942ff88016ba6cf048298a3e6e',
-              // },
+              {
+                label: 'Brand Kit',
+                href: 'https://sonic-market.notion.site/Brand-Kit-15e394942ff880d09c65d8342ed2d54e',
+              },
               // {
               //   label: 'Audit Report',
               //   href: 'https://github.com/sonic.market-dex/v2-core/blob/master/audits/sonic.market.pdf',
