@@ -72,7 +72,7 @@ const config = {
             position: 'left',
           },
           {
-            to: '/developers/overview',
+            to: '/developers/integration-guide/overview',
             label: 'Developers',
             position: 'left',
           },
