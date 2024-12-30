@@ -24,3 +24,9 @@ For example, in an **ETH/USDC** market:
 ### **Subgraph Endpoint**
 
 - **Sonic Mainnet**: https://subgraph.satsuma-prod.com/f6a8c4889b7b/clober/v2-core-subgraph-sonic-mainnet/api
+
+
+### **Deployed Contracts**
+- **[Controller](https://github.com/Sonic-Market/periphery/blob/master/src/Controller.sol)**: `0xADc0CC0c3Ea12e57b8BcB7d7C8ac03222487E337`
+- **[BookManager](https://github.com/Sonic-Market/core/blob/master/src/BookManager.sol)**: `0xD4aD5Ed9E1436904624b6dB8B1BE31f36317C636`
+- **[BookViewer](https://github.com/Sonic-Market/periphery/blob/master/src/BookViewer.sol)**: `0xe81e78f946e34d13Dcb6fd46a78713E0FFDA5613`
