@@ -8,7 +8,7 @@ sidebar_position: 1
 
 There is a **view function** that calculates the amountOut you will receive when you input an amountIn into a book. Alternatively, you can refer to our **off-chain TypeScript** implementation available in the SDK for additional guidance.
 
-Below is the interface for getExpectedInput. If you want to allow **unlimited slippage**, simply set the limitPrice parameter to **0**.
+Below is the interface for getExpectedOutput. If you want to allow **unlimited slippage**, simply set the limitPrice parameter to **0**.
 
 ```solidity
 /**
@@ -23,12 +23,12 @@ struct TakeOrderParams {
 }
 
 /**
- * @notice Returns the expected input for a take order
- * @param params The parameters of the take order
+ * @notice Returns the expected output for a spend order
+ * @param params The parameters of the spend order
  * @return takenQuoteAmount The expected taken quote amount
  * @return spentBaseAmount The expected spend base amount
  */
-function getExpectedInput(IController.TakeOrderParams memory params)
+function getExpectedOutput(IController.SpendOrderParams memory params)
     external
     view
     returns (uint256 takenQuoteAmount, uint256 spentBaseAmount);
@@ -36,4 +36,4 @@ function getExpectedInput(IController.TakeOrderParams memory params)
 
 Books are always matched from **higher to lower prices**. This means that, for an **ETH/USDC bid book**, once the price stored in the contract is converted into a human-readable value, the order remains the same. However, for an **ask book**, the order is reversed.
 
-Below is an example TypeScript implementation of getExpectedInput: [**view.ts#L936**](https://github.com/clober-dex/v2-sdk/blob/main/src/view.ts#L936)
+Below is an example TypeScript implementation of getExpectedOutput: [**view.ts#L936**](https://github.com/clober-dex/v2-sdk/blob/main/src/view.ts#L818)
