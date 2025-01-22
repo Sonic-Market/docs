@@ -41,7 +41,7 @@ function spend(
 ) external payable;
 ```
 
-Similar to getExpectedInput, if you want to set **unlimited slippage**, simply set the limitPrice parameter to **0**.
+Similar to getExpectedOutput, if you want to set **unlimited slippage**, simply set the limitPrice parameter to **0**.
 
 Below is an example SDK function that wraps a market order using TypeScript. For more details, refer to the following file in our repository:
 
