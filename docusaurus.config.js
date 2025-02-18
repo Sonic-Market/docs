@@ -78,7 +78,7 @@ const config = {
           },
           {
             label: 'Brand Kit',
-            to: 'https://sonic-market.notion.site/Brand-Kit-15e394942ff880d09c65d8342ed2d54e',
+            to: 'https://sonic-market.notion.site/Brand-Kit-120394942ff880eca7a3e653f8c02d30',
             position: 'right',
             className: 'persistent',
           },
@@ -104,7 +104,7 @@ const config = {
             items: [
               {
                 label: 'Brand Kit',
-                href: 'https://sonic-market.notion.site/Brand-Kit-15e394942ff880d09c65d8342ed2d54e',
+                href: 'https://sonic-market.notion.site/Brand-Kit-120394942ff880eca7a3e653f8c02d30',
               },
               // {
               //   label: 'Audit Report',
